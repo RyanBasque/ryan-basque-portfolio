@@ -1,4 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ryan Basque Portfolio
+
+A modern Next.js portfolio website built with TypeScript, styled-components, and atomic design principles.
+
+## 🚀 Features
+
+- **TypeScript**: Full type safety across the entire application
+- **Next.js 13+**: App Router with server-side rendering
+- **Styled Components**: CSS-in-JS styling with dynamic theming
+- **Atomic Design**: Organized component architecture (Atoms, Molecules, Organisms)
+- **Responsive Design**: Mobile-first approach with flexible layouts
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── about-me/          # About Me page
+│   │   ├── page.tsx
+│   │   └── styles.ts
+│   ├── layout.tsx
+│   ├── page.tsx           # Home page
+│   └── styles.ts
+├── components/
+│   ├── atoms/             # Basic building blocks
+│   │   ├── Button/
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   ├── Heading/
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   └── Text/
+│   │       ├── index.tsx
+│   │       └── styles.ts
+│   ├── molecules/         # Component combinations
+│   │   └── Card/
+│   │       ├── index.tsx
+│   │       └── styles.ts
+│   └── index.ts          # Component exports
+```
+
+## 🧪 Atomic Design Methodology
+
+### Atoms
+Basic building blocks that can't be broken down further:
+- **Button**: Interactive element with variants (primary, secondary, outline)
+- **Heading**: Typography component with different levels (h1-h6)
+- **Text**: Text component with variants (body, caption, subtitle)
+
+### Molecules
+Groups of atoms bonded together:
+- **Card**: Container component combining Heading, Text, and Button
+
+## 🎨 Styling
+
+The project uses styled-components for styling with:
+- Dynamic props for variant-based styling
+- Consistent design tokens
+- Responsive design patterns
+- TypeScript integration
 
 ## Getting Started
 
