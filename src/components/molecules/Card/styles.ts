@@ -1,24 +1,31 @@
 import styled from "styled-components";
+import {
+  colors,
+  borderRadius,
+  spacing,
+  shadows,
+  transitions,
+} from "../../../assets/styles";
 
 export const CardContainer = styled.div`
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e1e5e9;
-  transition: box-shadow 0.2s ease-in-out;
+  background: ${colors.background.paper};
+  border-radius: ${borderRadius.lg};
+  padding: ${spacing.lg};
+  box-shadow: ${shadows.md};
+  border: 1px solid ${colors.border.primary};
+  transition: box-shadow ${transitions.normal};
 
   &:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: ${shadows.lg};
   }
 `;
 
 export const CardContent = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: ${spacing.md};
 `;
 
 export const CardActions = styled.div`
   display: flex;
   justify-content: flex-start;
-  gap: 0.5rem;
+  gap: ${spacing.sm};
 `;

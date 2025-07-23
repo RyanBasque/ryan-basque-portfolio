@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { colors, fontSize, spacing } from "../../../assets/styles";
 
 interface StyledHeadingProps {
   $level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -9,46 +10,46 @@ interface StyledHeadingProps {
 
 const levelStyles = {
   1: css`
-    font-size: 2.5rem;
+    font-size: ${fontSize["5xl"]};
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: ${spacing.lg};
   `,
   2: css`
-    font-size: 2rem;
+    font-size: ${fontSize["4xl"]};
     line-height: 1.3;
     margin-bottom: 1.25rem;
   `,
   3: css`
-    font-size: 1.75rem;
+    font-size: ${fontSize.xxxl};
     line-height: 1.4;
-    margin-bottom: 1rem;
+    margin-bottom: ${spacing.md};
   `,
   4: css`
-    font-size: 1.5rem;
+    font-size: ${fontSize.xxl};
     line-height: 1.4;
     margin-bottom: 0.875rem;
   `,
   5: css`
-    font-size: 1.25rem;
+    font-size: ${fontSize.xl};
     line-height: 1.5;
     margin-bottom: 0.75rem;
   `,
   6: css`
-    font-size: 1rem;
+    font-size: ${fontSize.md};
     line-height: 1.5;
-    margin-bottom: 0.5rem;
+    margin-bottom: ${spacing.sm};
   `,
 };
 
 const colorStyles = {
   primary: css`
-    color: #333;
+    color: ${colors.text.primary};
   `,
   secondary: css`
-    color: #666;
+    color: ${colors.text.secondary};
   `,
   accent: css`
-    color: #007bff;
+    color: ${colors.primary.light};
   `,
 };
 

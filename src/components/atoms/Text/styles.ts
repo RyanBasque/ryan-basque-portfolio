@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { colors, fontSize } from "../../../assets/styles";
 
 interface StyledTextProps {
   $variant: "body" | "caption" | "subtitle";
@@ -9,28 +10,28 @@ interface StyledTextProps {
 
 const variantStyles = {
   body: css`
-    font-size: 1rem;
+    font-size: ${fontSize.md};
     line-height: 1.5;
   `,
   caption: css`
-    font-size: 0.875rem;
+    font-size: ${fontSize.sm};
     line-height: 1.4;
   `,
   subtitle: css`
-    font-size: 1.125rem;
+    font-size: ${fontSize.lg};
     line-height: 1.6;
   `,
 };
 
 const colorStyles = {
   primary: css`
-    color: #333;
+    color: ${colors.text.primary};
   `,
   secondary: css`
-    color: #666;
+    color: ${colors.text.secondary};
   `,
   muted: css`
-    color: #999;
+    color: ${colors.text.disabled};
   `,
 };
 

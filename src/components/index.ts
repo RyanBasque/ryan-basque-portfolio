@@ -6,8 +6,14 @@ export { default as Text } from "./atoms/Text";
 // Molecules
 export { default as Card } from "./molecules/Card";
 
+// Organisms
+export { default as ProfileHeader } from "./organisms/ProfileHeader";
+export { default as StatsGrid } from "./organisms/StatsGrid";
+
 // Export types
 export type { ButtonProps } from "./atoms/Button";
 export type { HeadingProps } from "./atoms/Heading";
 export type { TextProps } from "./atoms/Text";
 export type { CardProps } from "./molecules/Card";
+export type { ProfileHeaderProps } from "./organisms/ProfileHeader";
+export type { StatsGridProps, StatItemData } from "./organisms/StatsGrid";
