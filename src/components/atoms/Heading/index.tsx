@@ -1,29 +1,20 @@
 import React from 'react';
-import { StyledHeading } from './styles';
 
-export interface HeadingProps {
-  children: React.ReactNode;
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
-  color?: 'primary' | 'secondary' | 'accent';
-  weight?: 'normal' | 'medium' | 'bold';
-  align?: 'left' | 'center' | 'right';
-  className?: string;
-}
+import * as S from './styles';
+import { HeadingProps, HeadingTag } from './types';
 
-type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
-const Heading: React.FC<HeadingProps> = ({
+const Heading = ({
   children,
   level = 1,
   color = 'primary',
   weight = 'bold',
   align = 'left',
   className = '',
-}) => {
+}: HeadingProps): React.JSX.Element => {
   const tag = `h${level}` as HeadingTag;
   
   return (
-    <StyledHeading
+    <S.StyledHeading
       as={tag}
       $level={level}
       $color={color}
@@ -32,7 +23,7 @@ const Heading: React.FC<HeadingProps> = ({
       className={className}
     >
       {children}
-    </StyledHeading>
+    </S.StyledHeading>
   );
 };
 

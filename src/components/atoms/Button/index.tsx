@@ -1,17 +1,9 @@
 import React from 'react';
-import { StyledButton } from './styles';
 
-export interface ButtonProps {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
-}
+import { ButtonProps } from './types';
+import * as S from './styles';
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   variant = 'primary',
   size = 'medium',
@@ -19,9 +11,9 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   className = '',
-}) => {
+}: ButtonProps): React.JSX.Element => {
   return (
-    <StyledButton
+    <S.StyledButton
       type={type}
       $variant={variant}
       $size={size}
@@ -30,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
       className={className}
     >
       {children}
-    </StyledButton>
+    </S.StyledButton>
   );
 };
 
