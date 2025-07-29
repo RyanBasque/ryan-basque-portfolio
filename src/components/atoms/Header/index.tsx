@@ -1,28 +1,23 @@
 "use client";
-import React, { useState, useMemo } from "react";
-import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import React, { useState } from "react";
+import Link from "next/link";
+import { signOut } from "next-auth/react";
+
+import { useAuth } from "@/contexts/AuthContext";
+
+import { useCurrentRoute } from "@/hooks/useCurrentRoute";
 
 import NavigationMenu from "@/components/molecules/NavigationMenu";
+import UserProfile from "@/components/atoms/UserProfile";
 
 import { HeaderProps } from "./types";
 import * as S from "./styles";
 
-const Header = ({
-  showMenu = true,
-  user = null,
-}: HeaderProps): React.JSX.Element => {
+const Header = ({ showMenu = true }: HeaderProps): React.JSX.Element => {
+  const { user } = useAuth();
+  const { shouldShowLogin, isLoginPage } = useCurrentRoute();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const shouldHideSignUpButton = useMemo(() => {
-    return pathname === "/register";
-  }, [pathname]);
-
-  const shouldHideLoginButton = useMemo(() => {
-    return pathname === "/login";
-  }, [pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -32,26 +27,12 @@ const Header = ({
     setIsMenuOpen(false);
   };
 
-  const handleSignUpClick = () => {
-    router.push("/register");
-  };
-
-  const handleLoginClick = () => {
-    router.push("/login");
-  };
-
-  const getInitials = (name?: string) => {
-    if (!name) return "Não Definido";
-    return name
-      .split(" ")
-      .map((word) => word.charAt(0))
-      .join("")
-      .substring(0, 2)
-      .toUpperCase();
-  };
-
-  const handleHomeClick = () => {
-    router.push("/");
+  const handleLogout = async () => {
+    try {
+      await signOut({ callbackUrl: "/" });
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+    }
   };
 
   return (
@@ -60,46 +41,32 @@ const Header = ({
         <S.Logo>
           {showMenu && (
             <S.HamburgerButton onClick={toggleMenu} aria-label="Menu">
-              <S.HamburgerLine isOpen={isMenuOpen} index={0} />
-              <S.HamburgerLine isOpen={isMenuOpen} index={1} />
-              <S.HamburgerLine isOpen={isMenuOpen} index={2} />
+              <S.HamburgerLine $isOpen={isMenuOpen} $index={0} />
+              <S.HamburgerLine $isOpen={isMenuOpen} $index={1} />
+              <S.HamburgerLine $isOpen={isMenuOpen} $index={2} />
             </S.HamburgerButton>
           )}
-          <S.LogoText onClick={handleHomeClick}>Dev Portal</S.LogoText>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <S.LogoText>Dev Portal</S.LogoText>
+          </Link>
         </S.Logo>
 
-        {!user && (
-          <S.AuthButtons isMenuOpen={isMenuOpen}>
-            {!shouldHideLoginButton && (
-              <S.LoginButton onClick={handleLoginClick}>Login</S.LoginButton>
-            )}
-            {!shouldHideSignUpButton && (
-              <S.SignUpButton onClick={handleSignUpClick}>
-                Criar Conta
-              </S.SignUpButton>
-            )}
+        {!user && shouldShowLogin && !isLoginPage && (
+          <S.AuthButtons $isMenuOpen={isMenuOpen}>
+            <Link href="/login">
+              <S.LoginButton>Entrar</S.LoginButton>
+            </Link>
           </S.AuthButtons>
         )}
 
         {user && (
-          <S.UserInfo isMenuOpen={isMenuOpen}>
-            <S.UserAvatar>
-              {user.avatar ? (
-                <Image
-                  src={user.avatar}
-                  alt={user.name}
-                  width={32}
-                  height={32}
-                  style={{ borderRadius: "50%" }}
-                />
-              ) : (
-                getInitials(user.name)
-              )}
-            </S.UserAvatar>
-            <S.UserDetails>
-              <S.UserName>{user.name}</S.UserName>
-              {user.email && <S.UserEmail>{user.email}</S.UserEmail>}
-            </S.UserDetails>
+          <S.UserInfo $isMenuOpen={isMenuOpen}>
+            <UserProfile
+              user={user}
+              onLogout={handleLogout}
+              variant="default"
+              size="medium"
+            />
           </S.UserInfo>
         )}
       </S.HeaderContent>

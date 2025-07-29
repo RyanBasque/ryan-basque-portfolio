@@ -6,178 +6,212 @@ import {
   borderRadius,
   shadows,
   transitions,
+  fontSize,
 } from "@/assets/styles";
 
-export const HomeContainer = styled.div`
+export const LoginContainer = styled.div`
   min-height: calc(100vh - 120px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: ${spacing.xl};
   background: ${colors.background.primary};
   color: ${colors.text.primary};
-
-  ${mediaQueries.down.md} {
-    padding: ${spacing.md};
-  }
 `;
 
 export const HeroSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing.xl};
-  max-width: 1200px;
-  width: 100%;
-  margin-bottom: ${spacing.xxxl};
+  background: linear-gradient(
+    135deg,
+    ${colors.background.secondary} 0%,
+    ${colors.background.primary} 100%
+  );
+  padding: ${spacing.xxxl} ${spacing.xl};
+  text-align: center;
+  border-bottom: 1px solid ${colors.border.primary};
 
   ${mediaQueries.down.md} {
-    gap: ${spacing.lg};
-    margin-bottom: ${spacing.xl};
+    padding: ${spacing.xxxl} ${spacing.md};
   }
 `;
 
-export const ProfileSection = styled.div`
-  display: flex;
-  gap: ${spacing.xl};
-  width: 100%;
+export const HeroContent = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
 
-  ${mediaQueries.down.md} {
-    flex-direction: column;
-    gap: ${spacing.lg};
-  }
-`;
-
-export const MainContent = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing.lg};
-`;
-
-export const SkillsSection = styled.section`
-  background: ${colors.background.secondary};
-  border: 1px solid ${colors.border.primary};
-  border-radius: ${borderRadius.xl};
-  padding: ${spacing.xl};
-  margin-top: ${spacing.xl};
-
-  h2 {
+  h1 {
     color: ${colors.text.primary};
     margin-bottom: ${spacing.lg};
-  }
+    font-size: ${fontSize["5xl"]};
+    font-weight: 700;
 
-  ${mediaQueries.down.md} {
-    padding: ${spacing.lg};
-    margin-top: ${spacing.lg};
-
-    h2 {
-      margin-bottom: ${spacing.md};
-      font-size: 1.375rem;
+    ${mediaQueries.down.md} {
+      font-size: ${fontSize["4xl"]};
     }
-  }
-
-  @media (max-width: 480px) {
-    padding: ${spacing.md};
-    margin-top: ${spacing.md};
-    border-radius: ${borderRadius.lg};
-
-    h2 {
-      margin-bottom: ${spacing.md};
-      font-size: 1.25rem;
-    }
-  }
-`;
-
-export const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: ${spacing.lg};
-
-  ${mediaQueries.down.lg} {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: ${spacing.md};
-  }
-
-  ${mediaQueries.down.md} {
-    grid-template-columns: 1fr;
-    gap: ${spacing.md};
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: ${spacing.sm};
-  }
-`;
-
-export const SkillCard = styled.div`
-  background: ${colors.background.tertiary};
-  border: 1px solid ${colors.border.primary};
-  border-radius: ${borderRadius.lg};
-  padding: ${spacing.lg};
-  transition: ${transitions.normal};
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: ${shadows.lg};
-  }
-
-  h3 {
-    color: ${colors.primary.light};
-    margin-bottom: ${spacing.sm};
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
-
-  p {
-    color: ${colors.text.primary};
-    line-height: 1.5;
-    margin: 0;
-    font-size: 0.9rem;
-  }
-
-  ${mediaQueries.down.md} {
-    padding: ${spacing.md};
-
-    h3 {
-      font-size: 1rem;
-    }
-
-    p {
-      font-size: 0.875rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: ${spacing.md};
-
-    h3 {
-      font-size: 0.95rem;
-      margin-bottom: ${spacing.xs};
-    }
-
-    p {
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-  }
-`;
-
-export const ContactSection = styled.section`
-  background: ${colors.background.primary};
-  border: 2px solid ${colors.border.primary};
-  border-radius: ${borderRadius.xl};
-  padding: ${spacing.xl};
-  text-align: center;
-  margin-top: ${spacing.xl};
-
-  h2 {
-    color: ${colors.text.primary};
-    margin-bottom: ${spacing.md};
   }
 
   p {
     color: ${colors.text.secondary};
-    margin-bottom: ${spacing.lg};
+    font-size: ${fontSize.xl};
+    line-height: 1.6;
+  }
+`;
+
+export const ContentSection = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: ${spacing.xxxl};
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: ${spacing.xxxl} ${spacing.xl};
+
+  ${mediaQueries.down.lg} {
+    grid-template-columns: 1fr;
+    gap: ${spacing.xl};
+  }
+
+  ${mediaQueries.down.md} {
+    padding: ${spacing.xl} ${spacing.md};
+  }
+`;
+
+export const FormSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+export const FormContainer = styled.div`
+  background: ${colors.background.secondary};
+  border: 1px solid ${colors.border.primary};
+  border-radius: ${borderRadius.lg};
+  padding: ${spacing.xl};
+  width: 100%;
+  max-width: 500px;
+  box-shadow: ${shadows.md};
+
+  ${mediaQueries.down.md} {
+    padding: ${spacing.lg};
+  }
+`;
+
+export const FormHeader = styled.div`
+  margin-bottom: ${spacing.xl};
+  text-align: center;
+
+  h3 {
+    margin-bottom: ${spacing.sm};
+  }
+`;
+
+export const FormPlaceholder = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${spacing.lg};
+  padding: ${spacing.xxxl} ${spacing.xl};
+  text-align: center;
+  background: ${colors.background.tertiary};
+  border: 2px dashed ${colors.border.secondary};
+  border-radius: ${borderRadius.md};
+`;
+
+export const PlaceholderIcon = styled.div`
+  font-size: ${fontSize["4xl"]};
+  margin-bottom: ${spacing.md};
+`;
+
+export const PlaceholderActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing.md};
+  width: 100%;
+  max-width: 300px;
+
+  ${mediaQueries.up.sm} {
+    flex-direction: row;
+    justify-content: center;
+  }
+`;
+
+export const BenefitsSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+export const BenefitsContainer = styled.div`
+  width: 100%;
+  max-width: 500px;
+
+  h3 {
+    margin-bottom: ${spacing.xl};
+  }
+`;
+
+export const FeaturesList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing.lg};
+  margin-bottom: ${spacing.xxxl};
+`;
+
+export const FeatureItem = styled.div`
+  display: flex;
+  gap: ${spacing.md};
+  padding: ${spacing.lg};
+  background: ${colors.background.secondary};
+  border: 1px solid ${colors.border.primary};
+  border-radius: ${borderRadius.md};
+  transition: ${transitions.normal};
+
+  &:hover {
+    border-color: ${colors.primary.main};
+    transform: translateY(-2px);
+    box-shadow: ${shadows.md};
+  }
+`;
+
+export const FeatureIcon = styled.div`
+  font-size: ${fontSize.xxl};
+  flex-shrink: 0;
+`;
+
+export const FeatureContent = styled.div`
+  flex: 1;
+
+  h5 {
+    margin-bottom: ${spacing.xs};
+  }
+`;
+
+export const CTASection = styled.section`
+  background: ${colors.background.secondary};
+  border-top: 1px solid ${colors.border.primary};
+  padding: ${spacing.xxxl} ${spacing.xl};
+
+  ${mediaQueries.down.md} {
+    padding: ${spacing.xl} ${spacing.md};
+  }
+`;
+
+export const CTAContent = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+
+  h3 {
+    margin-bottom: ${spacing.sm};
+  }
+
+  p {
+    margin-bottom: ${spacing.xl};
+  }
+`;
+
+export const CTAActions = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: ${spacing.lg};
+
+  ${mediaQueries.down.sm} {
+    flex-direction: column;
+    align-items: center;
+    gap: ${spacing.md};
   }
 `;

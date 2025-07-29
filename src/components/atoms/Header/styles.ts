@@ -79,12 +79,12 @@ export const NavLink = styled.a`
   }
 `;
 
-export const AuthButtons = styled.div<{ isMenuOpen: boolean }>`
+export const AuthButtons = styled.div<{ $isMenuOpen: boolean }>`
   display: flex;
   gap: ${spacing.md};
   align-items: center;
-  opacity: ${({ isMenuOpen }) => (isMenuOpen ? "0" : "1")};
-  visibility: ${({ isMenuOpen }) => (isMenuOpen ? "hidden" : "visible")};
+  opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? "0" : "1")};
+  visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? "hidden" : "visible")};
   transition: ${transitions.normal};
 
   ${mediaQueries.down.md} {
@@ -105,27 +105,6 @@ export const LoginButton = styled.button`
   &:hover {
     border-color: ${colors.primary.light};
     color: ${colors.primary.light};
-  }
-
-  ${mediaQueries.down.md} {
-    padding: ${spacing.sm} ${spacing.sm};
-    font-size: ${fontSize.sm};
-  }
-`;
-
-export const SignUpButton = styled.button`
-  background: ${colors.status.success};
-  border: 1px solid ${colors.status.success};
-  color: ${colors.neutral.white};
-  padding: ${spacing.sm} ${spacing.md};
-  border-radius: ${borderRadius.md};
-  font-weight: 500;
-  cursor: pointer;
-  transition: ${transitions.normal};
-
-  &:hover {
-    background: #2ea043;
-    border-color: #2ea043;
   }
 
   ${mediaQueries.down.md} {
@@ -155,7 +134,7 @@ export const HamburgerButton = styled.button`
   }
 `;
 
-export const HamburgerLine = styled.span<{ isOpen: boolean; index: number }>`
+export const HamburgerLine = styled.span<{ $isOpen: boolean; $index: number }>`
   display: block;
   height: 2px;
   width: 18px;
@@ -163,22 +142,22 @@ export const HamburgerLine = styled.span<{ isOpen: boolean; index: number }>`
   transition: ${transitions.normal};
   transform-origin: center;
 
-  ${({ isOpen, index }) => {
-    if (!isOpen) return "";
+  ${({ $isOpen, $index }) => {
+    if (!$isOpen) return "";
 
-    if (index === 0) {
+    if ($index === 0) {
       return `
         transform: translateY(6px) rotate(45deg);
       `;
     }
 
-    if (index === 1) {
+    if ($index === 1) {
       return `
         opacity: 0;
       `;
     }
 
-    if (index === 2) {
+    if ($index === 2) {
       return `
         transform: translateY(-6px) rotate(-45deg);
       `;
@@ -186,20 +165,16 @@ export const HamburgerLine = styled.span<{ isOpen: boolean; index: number }>`
   }}
 `;
 
-export const UserInfo = styled.div<{ isMenuOpen: boolean }>`
+export const UserInfo = styled.div<{ $isMenuOpen: boolean }>`
   display: flex;
   align-items: center;
   gap: ${spacing.sm};
-  opacity: ${({ isMenuOpen }) => (isMenuOpen ? "1" : "0")};
-  visibility: ${({ isMenuOpen }) => (isMenuOpen ? "visible" : "hidden")};
+  opacity: 1;
+  visibility: visible;
   transition: ${transitions.normal};
-  position: absolute;
-  right: ${spacing.xl};
-  top: 50%;
-  transform: translateY(-50%);
 
   ${mediaQueries.down.md} {
-    right: ${spacing.md};
+    display: none;
   }
 `;
 
@@ -236,4 +211,34 @@ export const UserEmail = styled.span`
   color: ${colors.text.secondary};
   font-size: ${fontSize.xs};
   line-height: 1.2;
+`;
+
+export const LogoutButton = styled.button`
+  background: transparent;
+  border: 1px solid ${colors.border.primary};
+  color: ${colors.text.secondary};
+  padding: ${spacing.xs} ${spacing.sm};
+  border-radius: ${borderRadius.sm};
+  cursor: pointer;
+  transition: ${transitions.normal};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: ${spacing.sm};
+
+  &:hover {
+    border-color: ${colors.status.error};
+    color: ${colors.status.error};
+    background: rgba(218, 54, 51, 0.1);
+  }
+
+  span {
+    transform: rotate(90deg);
+    font-size: ${fontSize.sm};
+  }
+
+  ${mediaQueries.down.md} {
+    margin-left: ${spacing.xs};
+    padding: ${spacing.xs};
+  }
 `;

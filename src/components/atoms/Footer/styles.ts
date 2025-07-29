@@ -13,6 +13,7 @@ export const FooterContainer = styled.footer`
   border-top: 1px solid ${colors.border.primary};
   padding: ${spacing.xl} 0;
   margin-top: auto;
+  height: 5vh;
 `;
 
 export const FooterContent = styled.div`

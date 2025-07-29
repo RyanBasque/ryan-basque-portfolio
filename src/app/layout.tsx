@@ -6,6 +6,7 @@ import StyledComponentsRegistry from "@/lib/registry";
 
 import Header from "@/components/atoms/Header";
 import Footer from "@/components/atoms/Footer";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +23,6 @@ export const metadata: Metadata = {
   description:
     "Plataforma moderna para desenvolvedores showcasearem seus projetos do GitHub",
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-    ],
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
@@ -50,11 +45,13 @@ export default function RootLayout({
           padding: 0,
         }}
       >
-        <StyledComponentsRegistry>
-          <Header />
-          <main style={{ flex: 1 }}>{children}</main>
-          <Footer />
-        </StyledComponentsRegistry>
+        <AuthProvider>
+          <StyledComponentsRegistry>
+            <Header />
+            <main style={{ flex: 1 }}>{children}</main>
+            <Footer />
+          </StyledComponentsRegistry>
+        </AuthProvider>
       </body>
     </html>
   );
