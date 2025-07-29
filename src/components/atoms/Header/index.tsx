@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import NavigationMenu from "@/components/molecules/NavigationMenu";
 
@@ -48,7 +49,9 @@ const Header = ({
         {!user && (
           <S.AuthButtons isMenuOpen={isMenuOpen}>
             <S.LoginButton>Login</S.LoginButton>
-            <S.SignUpButton>Criar Conta</S.SignUpButton>
+            <Link href="/register">
+              <S.SignUpButton>Criar Conta</S.SignUpButton>
+            </Link>
           </S.AuthButtons>
         )}
 
