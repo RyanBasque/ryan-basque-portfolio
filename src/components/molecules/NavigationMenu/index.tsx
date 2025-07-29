@@ -1,5 +1,12 @@
-import React, { useMemo } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import React from "react";
+import Link from "next/link";
+
+import { useAuth } from "@/contexts/AuthContext";
+import UserProfile from "@/components/atoms/UserProfile";
+import Icon from "@/components/atoms/Icon";
+
+import { useCurrentRoute } from "@/hooks/useCurrentRoute";
+
 import * as S from "./styles";
 import { NavigationMenuProps } from "./types";
 
@@ -7,31 +14,18 @@ const NavigationMenu = ({
   isOpen,
   onClose,
 }: NavigationMenuProps): React.JSX.Element => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const { user, logout } = useAuth();
+  const { shouldShowLogin } = useCurrentRoute();
 
-  const shouldHideSignUpButton = useMemo(() => {
-    return pathname === "/register";
-  }, [pathname]);
-
-  const shouldHideLoginButton = useMemo(() => {
-    return pathname === "/login";
-  }, [pathname]);
-
-  const handleSignUpClick = () => {
-    router.push("/register");
-    onClose();
-  };
-
-  const handleLoginClick = () => {
-    router.push("/login");
+  const handleLogout = async () => {
+    await logout();
     onClose();
   };
 
   return (
     <>
-      <S.MenuOverlay isOpen={isOpen} onClick={onClose} />
-      <S.MobileMenu isOpen={isOpen}>
+      <S.MenuOverlay $isOpen={isOpen} onClick={onClose} />
+      <S.MobileMenu $isOpen={isOpen}>
         <S.MobileMenuHeader>
           <S.MobileMenuTitle>Dev Portal</S.MobileMenuTitle>
           <S.CloseButton onClick={onClose} aria-label="Fechar menu">
@@ -40,30 +34,56 @@ const NavigationMenu = ({
         </S.MobileMenuHeader>
 
         <S.MobileMenuContent>
-          <S.MobileNavigation>
-            <S.MobileNavLink href="/perfil" onClick={onClose}>
-              Feed
-            </S.MobileNavLink>
-            <S.MobileNavLink href="/" onClick={onClose}>
-              Sobre o Projeto
-            </S.MobileNavLink>
-            <S.MobileNavLink href="/contato" onClick={onClose}>
-              Sobre o Criador
-            </S.MobileNavLink>
-          </S.MobileNavigation>
+          <S.MobileNavSection>
+            <S.MobileNavSectionTitle>Navegação</S.MobileNavSectionTitle>
+            <S.MobileNavigation>
+              <S.MobileNavLink href="/perfil" onClick={onClose}>
+                <S.NavLinkIcon>
+                  <Icon name="feed" />
+                </S.NavLinkIcon>
+                Feed
+              </S.MobileNavLink>
+              <S.MobileNavLink href="/" onClick={onClose}>
+                <S.NavLinkIcon>
+                  <Icon name="project" />
+                </S.NavLinkIcon>
+                Sobre o Projeto
+              </S.MobileNavLink>
+              <S.MobileNavLink href="/contato" onClick={onClose}>
+                <S.NavLinkIcon>
+                  <Icon name="user" />
+                </S.NavLinkIcon>
+                Sobre o Criador
+              </S.MobileNavLink>
+            </S.MobileNavigation>
+          </S.MobileNavSection>
 
-          <S.MobileAuthButtons>
-            {!shouldHideLoginButton && (
-              <S.MobileLoginButton onClick={handleLoginClick}>
-                Login
-              </S.MobileLoginButton>
+          <div style={{ marginTop: "auto" }}>
+            {!user && shouldShowLogin && (
+              <S.MobileAuthButtons>
+                <Link href="/login" style={{ textDecoration: "none" }}>
+                  <S.MobileLoginButton onClick={onClose}>
+                    Entrar
+                  </S.MobileLoginButton>
+                </Link>
+              </S.MobileAuthButtons>
             )}
-            {!shouldHideSignUpButton && (
-              <S.MobileSignUpButton onClick={handleSignUpClick}>
-                Criar Conta
-              </S.MobileSignUpButton>
+
+            {user && user.email && (
+              <S.UserProfileSection>
+                <UserProfile
+                  user={user}
+                  onLogout={handleLogout}
+                  variant="menu"
+                  size="large"
+                />
+              </S.UserProfileSection>
             )}
-          </S.MobileAuthButtons>
+
+            <S.MenuFooter>
+              <S.MenuVersion>Dev Portal v1.0</S.MenuVersion>
+            </S.MenuFooter>
+          </div>
         </S.MobileMenuContent>
       </S.MobileMenu>
     </>
