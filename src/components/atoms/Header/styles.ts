@@ -79,12 +79,12 @@ export const NavLink = styled.a`
   }
 `;
 
-export const AuthButtons = styled.div<{ isMenuOpen: boolean }>`
+export const AuthButtons = styled.div<{ $isMenuOpen: boolean }>`
   display: flex;
   gap: ${spacing.md};
   align-items: center;
-  opacity: ${({ isMenuOpen }) => (isMenuOpen ? "0" : "1")};
-  visibility: ${({ isMenuOpen }) => (isMenuOpen ? "hidden" : "visible")};
+  opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? "0" : "1")};
+  visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? "hidden" : "visible")};
   transition: ${transitions.normal};
 
   ${mediaQueries.down.md} {
@@ -155,7 +155,7 @@ export const HamburgerButton = styled.button`
   }
 `;
 
-export const HamburgerLine = styled.span<{ isOpen: boolean; index: number }>`
+export const HamburgerLine = styled.span<{ $isOpen: boolean; $index: number }>`
   display: block;
   height: 2px;
   width: 18px;
@@ -163,22 +163,22 @@ export const HamburgerLine = styled.span<{ isOpen: boolean; index: number }>`
   transition: ${transitions.normal};
   transform-origin: center;
 
-  ${({ isOpen, index }) => {
-    if (!isOpen) return "";
+  ${({ $isOpen, $index }) => {
+    if (!$isOpen) return "";
 
-    if (index === 0) {
+    if ($index === 0) {
       return `
         transform: translateY(6px) rotate(45deg);
       `;
     }
 
-    if (index === 1) {
+    if ($index === 1) {
       return `
         opacity: 0;
       `;
     }
 
-    if (index === 2) {
+    if ($index === 2) {
       return `
         transform: translateY(-6px) rotate(-45deg);
       `;
@@ -186,12 +186,12 @@ export const HamburgerLine = styled.span<{ isOpen: boolean; index: number }>`
   }}
 `;
 
-export const UserInfo = styled.div<{ isMenuOpen: boolean }>`
+export const UserInfo = styled.div<{ $isMenuOpen: boolean }>`
   display: flex;
   align-items: center;
   gap: ${spacing.sm};
-  opacity: ${({ isMenuOpen }) => (isMenuOpen ? "1" : "0")};
-  visibility: ${({ isMenuOpen }) => (isMenuOpen ? "visible" : "hidden")};
+  opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? "1" : "0")};
+  visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? "visible" : "hidden")};
   transition: ${transitions.normal};
   position: absolute;
   right: ${spacing.xl};

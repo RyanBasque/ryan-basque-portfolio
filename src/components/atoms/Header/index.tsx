@@ -38,16 +38,16 @@ const Header = ({
         <S.Logo>
           {showMenu && (
             <S.HamburgerButton onClick={toggleMenu} aria-label="Menu">
-              <S.HamburgerLine isOpen={isMenuOpen} index={0} />
-              <S.HamburgerLine isOpen={isMenuOpen} index={1} />
-              <S.HamburgerLine isOpen={isMenuOpen} index={2} />
+              <S.HamburgerLine $isOpen={isMenuOpen} $index={0} />
+              <S.HamburgerLine $isOpen={isMenuOpen} $index={1} />
+              <S.HamburgerLine $isOpen={isMenuOpen} $index={2} />
             </S.HamburgerButton>
           )}
           <S.LogoText>Dev Portal</S.LogoText>
         </S.Logo>
 
         {!user && (
-          <S.AuthButtons isMenuOpen={isMenuOpen}>
+          <S.AuthButtons $isMenuOpen={isMenuOpen}>
             <S.LoginButton>Login</S.LoginButton>
             <Link href="/register">
               <S.SignUpButton>Criar Conta</S.SignUpButton>
@@ -56,7 +56,7 @@ const Header = ({
         )}
 
         {user && (
-          <S.UserInfo isMenuOpen={isMenuOpen}>
+          <S.UserInfo $isMenuOpen={isMenuOpen}>
             <S.UserAvatar>
               {user.avatar ? (
                 <Image

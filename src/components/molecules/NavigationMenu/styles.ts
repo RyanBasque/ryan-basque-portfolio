@@ -8,20 +8,20 @@ import {
   zIndex,
 } from "@/assets/styles";
 
-export const MobileMenu = styled.div<{ isOpen: boolean }>`
+export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 280px;
   height: 100vh;
-  transform: translateX(${({ isOpen }) => (isOpen ? "0" : "-100%")});
+  transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "-100%")});
   background: ${colors.background.secondary};
   backdrop-filter: blur(12px);
   border-right: 1px solid ${colors.border.primary};
   border-radius: 0 ${borderRadius.md} ${borderRadius.md} 0;
   padding: 0;
-  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
+  visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
   transition: ${transitions.normal};
   z-index: ${zIndex.dropdown};
   overflow-y: auto;
@@ -36,7 +36,7 @@ export const MobileMenu = styled.div<{ isOpen: boolean }>`
   /* Desktop */
   @media (min-width: 1024px) {
     width: 300px;
-    transform: translateX(${({ isOpen }) => (isOpen ? "0" : "-100%")});
+    transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "-100%")});
   }
 
   /* Desktop large */
@@ -86,15 +86,15 @@ export const MobileMenuContent = styled.div`
   overflow-y: auto;
 `;
 
-export const MenuOverlay = styled.div<{ isOpen: boolean }>`
+export const MenuOverlay = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
+  visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
   transition: ${transitions.normal};
   z-index: ${zIndex.dropdown - 1};
 `;

@@ -8,8 +8,8 @@ const NavigationMenu = ({
 }: NavigationMenuProps): React.JSX.Element => {
   return (
     <>
-      <S.MenuOverlay isOpen={isOpen} onClick={onClose} />
-      <S.MobileMenu isOpen={isOpen}>
+      <S.MenuOverlay $isOpen={isOpen} onClick={onClose} />
+      <S.MobileMenu $isOpen={isOpen}>
         <S.MobileMenuHeader>
           <S.MobileMenuTitle>Dev Portal</S.MobileMenuTitle>
           <S.CloseButton onClick={onClose} aria-label="Fechar menu">
