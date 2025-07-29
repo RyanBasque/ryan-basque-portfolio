@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import Heading from "@/components/atoms/Heading";
 import Text from "@/components/atoms/Text";
@@ -6,7 +7,6 @@ import Text from "@/components/atoms/Text";
 import { useAuth } from "@/contexts/AuthContext";
 
 import * as S from "./styles";
-import React from "react";
 
 const Login = (): React.JSX.Element => {
   const { gitHubLogin, googleLogin, isLoading } = useAuth();

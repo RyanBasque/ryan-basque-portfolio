@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export interface User {

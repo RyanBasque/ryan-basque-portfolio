@@ -1,7 +1,7 @@
 "use client";
 import { JSX } from "react";
 
-import Perfil from "@/pages/Perfil";
+import Perfil from "@/components/pages/Perfil";
 
 const PerfilPage = (): JSX.Element => {
   return <Perfil />;
