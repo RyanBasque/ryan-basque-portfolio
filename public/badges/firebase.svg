@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="firebase-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFA000"/>
+      <stop offset="50%" style="stop-color:#FF6F00"/>
+      <stop offset="100%" style="stop-color:#FF8F00"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 10L20 50l8 58 36 10 36-10 8-58z" fill="url(#firebase-gradient)"/>
+  <path d="M64 10L88 34 72 96 64 108 56 96 40 34z" fill="#FFCA28"/>
+  <polygon points="64,40 76,28 64,16 52,28" fill="#FFF3E0"/>
+  <circle cx="64" cy="70" r="8" fill="#FF6F00"/>
+</svg>

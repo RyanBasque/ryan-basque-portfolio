@@ -1,17 +1,18 @@
 import styled from "styled-components";
+
 import {
   colors,
   spacing,
   borderRadius,
   fontSize,
   mediaQueries,
-} from "../../../assets/styles";
+} from "@/assets/styles";
 
 export const ProfileHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${spacing.lg};
-  max-width: 400px;
+  max-width: 500px;
   padding: ${spacing.lg};
   background: ${colors.background.primary};
   border-radius: ${borderRadius.xl};
@@ -22,18 +23,59 @@ export const ProfileHeaderContainer = styled.div`
     max-width: 100%;
     padding: ${spacing.md};
   }
+
+  ${mediaQueries.down.sm} {
+    padding: ${spacing.md};
+    gap: ${spacing.md};
+  }
+`;
+
+export const ProfileHeaderWrapper = styled.div`
+  display: flex;
+
+  ${mediaQueries.down.sm} {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: ${spacing.md};
+  }
+`;
+
+export const ProfileHeaderNameContainer = styled.div`
+  padding-left: ${spacing.md};
+  padding-top: ${spacing.sm};
+  padding-bottom: ${spacing.sm};
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  ${mediaQueries.down.sm} {
+    padding-left: 0;
+    padding-top: 0;
+    align-items: center;
+    text-align: center;
+    gap: ${spacing.sm};
+  }
 `;
 
 export const ProfileImageContainer = styled.div`
-  align-self: flex-start;
+  display: inline-block;
 `;
 
 export const ProfileImage = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: ${borderRadius.full};
   border: 2px solid ${colors.border.primary};
   object-fit: cover;
+
+  ${mediaQueries.down.sm} {
+    width: 120px;
+    height: 120px;
+  }
 `;
 
 export const ProfileInfo = styled.div`
@@ -48,6 +90,11 @@ export const ProfileName = styled.div`
     font-size: ${fontSize.xxxl};
     font-weight: 600;
     margin: 0;
+
+    ${mediaQueries.down.sm} {
+      font-size: ${fontSize.xxl};
+      text-align: center;
+    }
   }
 `;
 
@@ -58,9 +105,7 @@ export const ProfileHandle = styled.div`
   }
 `;
 
-export const StatusSection = styled.div`
-  margin: ${spacing.sm} 0;
-`;
+export const StatusSection = styled.div``;
 
 export const StatusBadge = styled.div`
   display: flex;
@@ -74,6 +119,10 @@ export const StatusBadge = styled.div`
 
   span {
     font-size: ${fontSize.sm};
+  }
+
+  ${mediaQueries.down.sm} {
+    margin: 10px auto;
   }
 `;
 
@@ -122,24 +171,23 @@ export const FollowersSection = styled.div`
   }
 `;
 
-export const BadgesSection = styled.div`
-  display: flex;
-  gap: ${spacing.sm};
-  margin-top: ${spacing.sm};
+export const BadgeEmoji = styled.span`
+  font-size: 16px;
+  line-height: 1;
 `;
 
-export const Badge = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: ${borderRadius.full};
-  background: ${colors.secondary.main};
-  border: 1px solid ${colors.border.primary};
+export const BadgesSection = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: ${spacing.md};
+  margin-top: ${spacing.sm};
+  position: relative;
 
-  p {
-    margin: 0;
-    font-size: ${fontSize.xs};
+  ${mediaQueries.down.md} {
+    gap: ${spacing.sm};
+  }
+
+  ${mediaQueries.down.sm} {
+    gap: 0.5rem;
   }
 `;

@@ -1,23 +1,14 @@
 import styled, { css } from "styled-components";
+
 import {
   colors,
   buttonSizes,
   mediaQueries,
   shadows,
   transitions,
-} from "../../../assets/styles";
+} from "@/assets/styles/theme";
 
-interface StyledButtonProps {
-  $variant: "primary" | "secondary" | "outline";
-  $size:
-    | "xsmall"
-    | "small"
-    | "medium"
-    | "large"
-    | "xlarge"
-    | "xxlarge"
-    | "responsive";
-}
+import { StyledButtonProps } from "./types";
 
 const variantStyles = {
   primary: css`

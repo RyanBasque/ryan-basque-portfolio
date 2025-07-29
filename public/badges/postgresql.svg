@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="postgresql-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#336791"/>
+      <stop offset="100%" style="stop-color:#2D5B84"/>
+    </linearGradient>
+  </defs>
+  <path d="M93.3 111.5c-4.8 0-9.4-1.9-12.8-5.3L64 89.7l-16.5 16.5c-3.4 3.4-8 5.3-12.8 5.3s-9.4-1.9-12.8-5.3c-7.1-7.1-7.1-18.5 0-25.6L64 38.5l42.1 42.1c7.1 7.1 7.1 18.5 0 25.6-3.4 3.4-8 5.3-12.8 5.3z" fill="url(#postgresql-gradient)"/>
+  <circle cx="64" cy="32" r="16" fill="url(#postgresql-gradient)"/>
+  <text x="64" y="90" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">PostgreSQL</text>
+</svg>

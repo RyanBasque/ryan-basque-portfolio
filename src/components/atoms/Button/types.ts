@@ -16,3 +16,15 @@ export interface ButtonProps {
   type?: "button" | "submit" | "reset";
   className?: string;
 }
+
+export interface StyledButtonProps {
+  $variant: "primary" | "secondary" | "outline";
+  $size:
+    | "xsmall"
+    | "small"
+    | "medium"
+    | "large"
+    | "xlarge"
+    | "xxlarge"
+    | "responsive";
+}

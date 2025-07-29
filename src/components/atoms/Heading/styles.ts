@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { colors, fontSize, spacing } from "../../../assets/styles";
+
+import { colors, fontSize, spacing } from "@/assets/styles/theme";
 
 interface StyledHeadingProps {
   $level: 1 | 2 | 3 | 4 | 5 | 6;

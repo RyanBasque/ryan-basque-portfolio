@@ -1,53 +1,49 @@
-import React from 'react';
+import React from "react";
 
-import Heading from '@/components/atoms/Heading';
-import Text from '@/components/atoms/Text';
+import Heading from "@/components/atoms/Heading";
+import Text from "@/components/atoms/Text";
+import BadgeWithTooltip from "@/components/atoms/BadgeTooltip";
 
-import { ProfileHeaderProps } from './types';
-import * as S from './styles';
+import { ProfileHeaderProps } from "./types";
+import * as S from "./styles";
 
 const ProfileHeader = ({
   name,
-  handle,
-  pronouns,
   status,
   description,
+  enterprise,
   location,
   website,
-  followers,
   imageUrl,
-  badges = []
+  badges = [],
 }: ProfileHeaderProps): React.JSX.Element => {
   return (
     <S.ProfileHeaderContainer>
-      <S.ProfileImageContainer>
-        <S.ProfileImage src={imageUrl} alt={`${name} profile picture`} />
-      </S.ProfileImageContainer>
-      
+      <S.ProfileHeaderWrapper>
+        <S.ProfileImageContainer>
+          <S.ProfileImage src={imageUrl} alt={`${name} profile picture`} />
+        </S.ProfileImageContainer>
+        <S.ProfileHeaderNameContainer>
+          <S.ProfileName>
+            <Heading level={1} color="primary" align="left">
+              {name}
+            </Heading>
+          </S.ProfileName>
+
+          <S.StatusSection>
+            <S.StatusBadge>
+              <span>🎯</span>
+              <S.StatusText>
+                <Text variant="body" color="primary" weight="medium">
+                  {status}
+                </Text>
+              </S.StatusText>
+            </S.StatusBadge>
+          </S.StatusSection>
+        </S.ProfileHeaderNameContainer>
+      </S.ProfileHeaderWrapper>
+
       <S.ProfileInfo>
-        <S.ProfileName>
-          <Heading level={1} color="primary" align="left">
-            {name}
-          </Heading>
-        </S.ProfileName>
-        
-        <S.ProfileHandle>
-          <Text variant="body" color="muted" align="left">
-            {handle} · {pronouns}
-          </Text>
-        </S.ProfileHandle>
-
-        <S.StatusSection>
-          <S.StatusBadge>
-            <span>🎯</span>
-            <S.StatusText>
-              <Text variant="body" color="primary" weight="medium">
-                {status}
-              </Text>
-            </S.StatusText>
-          </S.StatusBadge>
-        </S.StatusSection>
-
         <S.DescriptionSection>
           <Text variant="body" color="secondary" align="left">
             {description}
@@ -56,30 +52,23 @@ const ProfileHeader = ({
 
         <S.LocationSection>
           <Text variant="body" color="muted" align="left">
-            🏢 Trademaster · 📍 {location}
+            {enterprise ? `🏢 ${enterprise}` : "📚 Em estudos"} · 📍 {location}{" "}
+            / Remoto
           </Text>
         </S.LocationSection>
 
-        <S.WebsiteSection>
-          <Text variant="body" color="secondary" align="left">
-            🔗 {website}
-          </Text>
-        </S.WebsiteSection>
-
-        {/* <S.FollowersSection>
-          <Text variant="body" color="muted" align="left">
-            👥 {followers} seguidores
-          </Text>
-        </S.FollowersSection> */}
+        {website && (
+          <S.WebsiteSection>
+            <Text variant="body" color="secondary" align="left">
+              🌐 {website}
+            </Text>
+          </S.WebsiteSection>
+        )}
 
         {badges.length > 0 && (
           <S.BadgesSection>
             {badges.map((badge, index) => (
-              <S.Badge key={index}>
-                <Text variant="caption" color="muted">
-                  🏆 {badge}
-                </Text>
-              </S.Badge>
+              <BadgeWithTooltip key={index} badge={badge} />
             ))}
           </S.BadgesSection>
         )}

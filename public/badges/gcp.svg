@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="gcp-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4"/>
+      <stop offset="33%" style="stop-color:#34A853"/>
+      <stop offset="66%" style="stop-color:#FBBC04"/>
+      <stop offset="100%" style="stop-color:#EA4335"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="16" fill="url(#gcp-gradient)"/>
+  <polygon points="64,20 94,35 94,65 64,80 34,65 34,35" fill="white"/>
+  <polygon points="64,30 84,40 84,60 64,70 44,60 44,40" fill="url(#gcp-gradient)"/>
+  <circle cx="64" cy="50" r="8" fill="white"/>
+  <text x="64" y="100" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Google Cloud</text>
+</svg>

@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { colors, fontSize } from "../../../assets/styles";
+
+import { colors, fontSize } from "@/assets/styles/theme";
 
 interface StyledTextProps {
   $variant: "body" | "caption" | "subtitle";

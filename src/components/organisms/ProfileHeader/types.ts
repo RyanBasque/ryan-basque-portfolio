@@ -1,12 +1,11 @@
 export interface ProfileHeaderProps {
   name: string;
-  handle: string;
-  pronouns: string;
-  status: string;
+  status?: string;
   description: string;
   location: string;
-  website: string;
+  website?: string;
   followers: number;
   imageUrl: string;
+  enterprise?: string;
   badges?: string[];
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,15 +58,49 @@ export const SkillsSection = styled.section`
     color: #f0f6fc;
     margin-bottom: 1.5rem;
   }
+
+  /* Para tablets pequenos */
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+
+    h2 {
+      margin-bottom: 1.25rem;
+      font-size: 1.375rem;
+    }
+  }
+
+  /* Para celulares */
+  @media (max-width: 480px) {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+  }
 `;
 
 export const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 `;
 
@@ -75,17 +109,51 @@ export const SkillCard = styled.div`
   border: 1px solid #30363d;
   border-radius: 8px;
   padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
 
   h3 {
     color: #58a6ff;
     margin-bottom: 0.75rem;
     font-size: 1.125rem;
+    font-weight: 600;
   }
 
   p {
     color: #e6edf3;
     line-height: 1.5;
     margin: 0;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
   }
 `;
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="mongodb-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#47A248"/>
+      <stop offset="100%" style="stop-color:#3F9142"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 11C64 11 40 30 40 60s24 49 24 49 24-19 24-49S64 11 64 11z" fill="url(#mongodb-gradient)"/>
+  <ellipse cx="64" cy="60" rx="20" ry="35" fill="none" stroke="white" stroke-width="2"/>
+  <ellipse cx="64" cy="60" rx="35" ry="20" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="64" cy="60" r="3" fill="white"/>
+  <text x="64" y="125" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#47A248">MongoDB</text>
+</svg>

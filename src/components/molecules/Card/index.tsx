@@ -4,8 +4,8 @@ import Heading from '@/components/atoms/Heading';
 import Text from '@/components/atoms/Text';
 import Button from '@/components/atoms/Button';
 
-import * as S from './styles';
 import { CardProps } from './types';
+import * as S from './styles';
 
 const Card = ({
   title,
