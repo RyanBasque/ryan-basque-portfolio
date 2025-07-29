@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 
-import { breakDescriptionParagraph } from "@/utils/breakDescriptionParagraph";
-
 import Heading from "@/components/atoms/Heading";
 import Text from "@/components/atoms/Text";
 import Button from "@/components/atoms/Button";
