@@ -6,6 +6,7 @@ import StyledComponentsRegistry from "@/lib/registry";
 
 import Header from "@/components/atoms/Header";
 import Footer from "@/components/atoms/Footer";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,11 +51,13 @@ export default function RootLayout({
           padding: 0,
         }}
       >
-        <StyledComponentsRegistry>
-          <Header />
-          <main style={{ flex: 1 }}>{children}</main>
-          <Footer />
-        </StyledComponentsRegistry>
+        <AuthProvider>
+          <StyledComponentsRegistry>
+            <Header />
+            <main style={{ flex: 1 }}>{children}</main>
+            <Footer />
+          </StyledComponentsRegistry>
+        </AuthProvider>
       </body>
     </html>
   );

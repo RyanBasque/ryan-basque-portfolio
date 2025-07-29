@@ -113,27 +113,6 @@ export const LoginButton = styled.button`
   }
 `;
 
-export const SignUpButton = styled.button`
-  background: ${colors.status.success};
-  border: 1px solid ${colors.status.success};
-  color: ${colors.neutral.white};
-  padding: ${spacing.sm} ${spacing.md};
-  border-radius: ${borderRadius.md};
-  font-weight: 500;
-  cursor: pointer;
-  transition: ${transitions.normal};
-
-  &:hover {
-    background: #2ea043;
-    border-color: #2ea043;
-  }
-
-  ${mediaQueries.down.md} {
-    padding: ${spacing.sm} ${spacing.sm};
-    font-size: ${fontSize.sm};
-  }
-`;
-
 export const HamburgerButton = styled.button`
   background: transparent;
   border: none;
@@ -190,16 +169,17 @@ export const UserInfo = styled.div<{ $isMenuOpen: boolean }>`
   display: flex;
   align-items: center;
   gap: ${spacing.sm};
-  opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? "1" : "0")};
-  visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? "visible" : "hidden")};
+  opacity: 1;
+  visibility: visible;
   transition: ${transitions.normal};
-  position: absolute;
-  right: ${spacing.xl};
-  top: 50%;
-  transform: translateY(-50%);
 
   ${mediaQueries.down.md} {
+    opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? "1" : "0")};
+    visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? "visible" : "hidden")};
+    position: absolute;
     right: ${spacing.md};
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;
 
@@ -236,4 +216,34 @@ export const UserEmail = styled.span`
   color: ${colors.text.secondary};
   font-size: ${fontSize.xs};
   line-height: 1.2;
+`;
+
+export const LogoutButton = styled.button`
+  background: transparent;
+  border: 1px solid ${colors.border.primary};
+  color: ${colors.text.secondary};
+  padding: ${spacing.xs} ${spacing.sm};
+  border-radius: ${borderRadius.sm};
+  cursor: pointer;
+  transition: ${transitions.normal};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: ${spacing.sm};
+
+  &:hover {
+    border-color: ${colors.status.error};
+    color: ${colors.status.error};
+    background: rgba(218, 54, 51, 0.1);
+  }
+
+  span {
+    transform: rotate(90deg);
+    font-size: ${fontSize.sm};
+  }
+
+  ${mediaQueries.down.md} {
+    margin-left: ${spacing.xs};
+    padding: ${spacing.xs};
+  }
 `;

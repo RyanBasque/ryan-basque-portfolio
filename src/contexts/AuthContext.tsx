@@ -30,6 +30,7 @@ export function AuthContextProvider({
   children: React.ReactNode;
 }) {
   const { data: session, status } = useSession();
+  console.log("🔐 AuthContextProvider: status =", status, "session =", session);
   const [user, setUser] = useState<UserData | null>(null);
 
   useEffect(() => {
@@ -40,10 +41,10 @@ export function AuthContextProvider({
         image: session.user.image || "",
         githubId: session.user.githubId,
       };
-      // setUser(userData);
+      setUser(userData);
 
       // Salvar no localStorage para persistência
-      // localStorage.setItem("auth_user", JSON.stringify(userData));
+      localStorage.setItem("auth_user", JSON.stringify(userData));
 
       console.log("🔐 Dados do usuário salvos no contexto:", userData);
       console.log("⏰ Sessão expira em:", session.expires);
@@ -79,7 +80,7 @@ export function AuthContextProvider({
   const authData: AuthContextData = {
     user,
     isLoading: status === "loading",
-    isAuthenticated: !!session && !!user,
+    isAuthenticated: !!session || !!user,
     sessionExpires: session?.expires || null,
   };
 

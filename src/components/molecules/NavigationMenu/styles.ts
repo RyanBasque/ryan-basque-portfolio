@@ -144,19 +144,3 @@ export const MobileLoginButton = styled.button`
     color: ${colors.primary.light};
   }
 `;
-
-export const MobileSignUpButton = styled.button`
-  background: ${colors.status.success};
-  border: 1px solid ${colors.status.success};
-  color: ${colors.neutral.white};
-  padding: ${spacing.md};
-  border-radius: ${borderRadius.md};
-  font-weight: 500;
-  cursor: pointer;
-  transition: ${transitions.normal};
-
-  &:hover {
-    background: #2ea043;
-    border-color: #2ea043;
-  }
-`;

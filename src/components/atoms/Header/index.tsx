@@ -2,16 +2,25 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
+
+import { useAuth } from "@/contexts/AuthContext";
+
+import { useCurrentRoute } from "@/hooks/useCurrentRoute";
 
 import NavigationMenu from "@/components/molecules/NavigationMenu";
+
+import { getInitials } from "@/utils/getInitials";
 
 import { HeaderProps } from "./types";
 import * as S from "./styles";
 
 const Header = ({
   showMenu = true,
-  user = null,
-}: HeaderProps): React.JSX.Element => {
+}: Omit<HeaderProps, "user" | "showLogin">): React.JSX.Element => {
+  const { auth } = useAuth();
+  const { shouldShowLogin, isLoginPage } = useCurrentRoute();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,14 +31,12 @@ const Header = ({
     setIsMenuOpen(false);
   };
 
-  const getInitials = (name?: string) => {
-    if (!name) return "Não Definido";
-    return name
-      .split(" ")
-      .map((word) => word.charAt(0))
-      .join("")
-      .substring(0, 2)
-      .toUpperCase();
+  const handleLogout = async () => {
+    try {
+      await signOut({ callbackUrl: "/" });
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+    }
   };
 
   return (
@@ -43,37 +50,41 @@ const Header = ({
               <S.HamburgerLine $isOpen={isMenuOpen} $index={2} />
             </S.HamburgerButton>
           )}
-          <S.LogoText>Dev Portal</S.LogoText>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <S.LogoText>Dev Portal</S.LogoText>
+          </Link>
         </S.Logo>
 
-        {!user && (
+        {!auth.isAuthenticated && shouldShowLogin && !isLoginPage && (
           <S.AuthButtons $isMenuOpen={isMenuOpen}>
-            <S.LoginButton>Login</S.LoginButton>
-            <Link href="/register">
-              <S.SignUpButton>Criar Conta</S.SignUpButton>
+            <Link href="/login">
+              <S.LoginButton>Login</S.LoginButton>
             </Link>
           </S.AuthButtons>
         )}
 
-        {user && (
+        {auth.isAuthenticated && auth.user && (
           <S.UserInfo $isMenuOpen={isMenuOpen}>
             <S.UserAvatar>
-              {user.avatar ? (
+              {auth.user.image ? (
                 <Image
-                  src={user.avatar}
-                  alt={user.name}
+                  src={auth.user.image}
+                  alt={auth.user.name || "Usuário"}
                   width={32}
                   height={32}
                   style={{ borderRadius: "50%" }}
                 />
               ) : (
-                getInitials(user.name)
+                getInitials(auth.user.name)
               )}
             </S.UserAvatar>
             <S.UserDetails>
-              <S.UserName>{user.name}</S.UserName>
-              {user.email && <S.UserEmail>{user.email}</S.UserEmail>}
+              <S.UserName>{auth.user.name}</S.UserName>
+              {auth.user.email && <S.UserEmail>{auth.user.email}</S.UserEmail>}
             </S.UserDetails>
+            <S.LogoutButton onClick={handleLogout} title="Logout">
+              <span>↗</span>
+            </S.LogoutButton>
           </S.UserInfo>
         )}
       </S.HeaderContent>

@@ -1,4 +1,5 @@
 import React from "react";
+
 import * as S from "./styles";
 import { NavigationMenuProps } from "./types";
 
@@ -31,10 +32,7 @@ const NavigationMenu = ({
           </S.MobileNavigation>
 
           <S.MobileAuthButtons>
-            <S.MobileLoginButton onClick={onClose}>Login</S.MobileLoginButton>
-            <S.MobileSignUpButton onClick={onClose}>
-              Criar Conta
-            </S.MobileSignUpButton>
+            <S.MobileLoginButton onClick={onClose}>Entrar</S.MobileLoginButton>
           </S.MobileAuthButtons>
         </S.MobileMenuContent>
       </S.MobileMenu>
