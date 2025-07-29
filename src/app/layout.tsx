@@ -19,7 +19,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Dev Portal",
-  description: "Plataforma moderna para desenvolvedores showcasearem seus projetos do GitHub",
+  description:
+    "Plataforma moderna para desenvolvedores showcasearem seus projetos do GitHub",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -31,19 +42,17 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          minHeight: '100vh',
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
           margin: 0,
-          padding: 0 
+          padding: 0,
         }}
       >
         <StyledComponentsRegistry>
           <Header />
-          <main style={{ flex: 1 }}>
-            {children}
-          </main>
+          <main style={{ flex: 1 }}>{children}</main>
           <Footer />
         </StyledComponentsRegistry>
       </body>

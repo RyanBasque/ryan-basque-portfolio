@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { colors, spacing, borderRadius, shadows, zIndex } from "@/assets/styles";
 import { TooltipContentProps, TooltipArrowProps } from "./types";
 
 export const TooltipContainer = styled.div`
@@ -10,31 +11,31 @@ const getTooltipPosition = (position: string) => {
   switch (position) {
     case "top":
       return css`
-        bottom: calc(100% + 8px);
+        bottom: calc(100% + ${spacing.sm});
         left: 50%;
         transform: translateX(-50%);
       `;
     case "bottom":
       return css`
-        top: calc(100% + 8px);
+        top: calc(100% + ${spacing.sm});
         left: 50%;
         transform: translateX(-50%);
       `;
     case "left":
       return css`
-        right: calc(100% + 8px);
+        right: calc(100% + ${spacing.sm});
         top: 50%;
         transform: translateY(-50%);
       `;
     case "right":
       return css`
-        left: calc(100% + 8px);
+        left: calc(100% + ${spacing.sm});
         top: 50%;
         transform: translateY(-50%);
       `;
     default:
       return css`
-        bottom: calc(100% + 8px);
+        bottom: calc(100% + ${spacing.sm});
         left: 50%;
         transform: translateX(-50%);
       `;
@@ -43,16 +44,16 @@ const getTooltipPosition = (position: string) => {
 
 export const TooltipContent = styled.div<TooltipContentProps>`
   position: absolute;
-  background: #1c2128;
-  color: #f0f6fc;
-  padding: 8px 12px;
-  border-radius: 6px;
+  background: ${colors.background.tertiary};
+  color: ${colors.text.primary};
+  padding: ${spacing.sm} ${spacing.md};
+  border-radius: ${borderRadius.md};
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  border: 1px solid #30363d;
+  z-index: ${zIndex.tooltip};
+  box-shadow: ${shadows.lg};
+  border: 1px solid ${colors.border.primary};
 
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
@@ -68,7 +69,7 @@ const getArrowPosition = (position: string) => {
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-top: 6px solid #1c2128;
+        border-top: 6px solid ${colors.background.tertiary};
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
       `;
@@ -77,7 +78,7 @@ const getArrowPosition = (position: string) => {
         bottom: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-bottom: 6px solid #1c2128;
+        border-bottom: 6px solid ${colors.background.tertiary};
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
       `;
@@ -86,7 +87,7 @@ const getArrowPosition = (position: string) => {
         left: 100%;
         top: 50%;
         transform: translateY(-50%);
-        border-left: 6px solid #1c2128;
+        border-left: 6px solid ${colors.background.tertiary};
         border-top: 6px solid transparent;
         border-bottom: 6px solid transparent;
       `;
@@ -95,7 +96,7 @@ const getArrowPosition = (position: string) => {
         right: 100%;
         top: 50%;
         transform: translateY(-50%);
-        border-right: 6px solid #1c2128;
+        border-right: 6px solid ${colors.background.tertiary};
         border-top: 6px solid transparent;
         border-bottom: 6px solid transparent;
       `;
@@ -104,7 +105,7 @@ const getArrowPosition = (position: string) => {
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-top: 6px solid #1c2128;
+        border-top: 6px solid ${colors.background.tertiary};
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
       `;

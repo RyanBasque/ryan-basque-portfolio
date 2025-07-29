@@ -1,52 +1,53 @@
 import styled from "styled-components";
+import { colors, spacing, fontSize, mediaQueries, transitions } from "@/assets/styles";
 
 export const FooterContainer = styled.footer`
-  background: #161b22;
-  border-top: 1px solid #30363d;
-  padding: 2rem 0;
+  background: ${colors.background.secondary};
+  border-top: 1px solid ${colors.border.primary};
+  padding: ${spacing.xl} 0;
   margin-top: auto;
 `;
 
 export const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 ${spacing.xl};
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: ${spacing.md};
   text-align: center;
 
-  @media (max-width: 768px) {
-    padding: 0 1rem;
+  ${mediaQueries.down.md} {
+    padding: 0 ${spacing.md};
   }
 `;
 
 export const FooterText = styled.p`
-  color: #e6edf3;
-  font-size: 1rem;
+  color: ${colors.text.primary};
+  font-size: ${fontSize.md};
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: ${spacing.sm};
   flex-wrap: wrap;
   justify-content: center;
 `;
 
 export const AuthorLink = styled.a`
-  color: #58a6ff;
+  color: ${colors.primary.light};
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: ${transitions.normal};
 
   &:hover {
-    color: #79c0ff;
+    color: ${colors.primary.main};
     text-decoration: underline;
   }
 `;
 
 export const Copyright = styled.p`
-  color: #7d8590;
-  font-size: 0.875rem;
+  color: ${colors.text.secondary};
+  font-size: ${fontSize.sm};
   margin: 0;
 `;

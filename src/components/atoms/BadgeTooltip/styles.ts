@@ -1,10 +1,18 @@
 import { styled } from "styled-components";
 
-import { borderRadius, colors, fontSize, mediaQueries } from "@/assets/styles";
+import {
+  borderRadius,
+  colors,
+  fontSize,
+  mediaQueries,
+  spacing,
+  shadows,
+  zIndex,
+} from "@/assets/styles";
 
 export const Badge = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: ${borderRadius.full};
   background: ${colors.secondary.main};
   border: 1px solid ${colors.border.primary};
@@ -17,7 +25,7 @@ export const Badge = styled.div`
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: ${shadows.md};
   }
 
   p {
@@ -25,7 +33,6 @@ export const Badge = styled.div`
     font-size: ${fontSize.xs};
   }
 
-  /* Para celulares pequenos */
   ${mediaQueries.down.sm} {
     width: 28px;
     height: 28px;
@@ -34,19 +41,19 @@ export const Badge = styled.div`
 
 export const TooltipContent = styled.div`
   position: absolute;
-  bottom: calc(100% + 12px);
+  bottom: calc(100% + ${spacing.sm});
   left: 50%;
   transform: translateX(-50%);
-  background: #1c2128;
-  color: #f0f6fc;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 12px;
+  background: ${colors.background.tertiary};
+  color: ${colors.text.primary};
+  padding: ${spacing.sm} ${spacing.md};
+  border-radius: ${borderRadius.md};
+  font-size: ${fontSize.xs};
   font-weight: 500;
   white-space: nowrap;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  border: 1px solid #30363d;
+  z-index: ${zIndex.tooltip};
+  box-shadow: ${shadows.lg};
+  border: 1px solid ${colors.border.primary};
   pointer-events: none;
 
   &::after {
@@ -59,10 +66,9 @@ export const TooltipContent = styled.div`
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #1c2128;
+    border-top: 6px solid ${colors.background.tertiary};
   }
 
-  /* Para celulares pequenos */
   ${mediaQueries.down.sm} {
     font-size: 11px;
     padding: 6px 10px;

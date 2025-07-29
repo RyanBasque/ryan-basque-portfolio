@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import { getBadgeData } from "@/utils/badgeConfig";
 
@@ -7,22 +7,15 @@ import * as S from "./styles";
 
 const BadgeWithTooltip = ({ badge }: BadgeTooltipProps): React.JSX.Element => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const badgeData = getBadgeData(badge);
+  const badgeData = useMemo(() => getBadgeData(badge), [badge]);
 
   return (
     <S.Badge
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      <S.BadgeImage 
-        src={badgeData.image} 
-        alt={badgeData.name}
-      />
-      {showTooltip && (
-        <S.TooltipContent>
-          {badgeData.name}
-        </S.TooltipContent>
-      )}
+      <S.BadgeImage src={badgeData.image} alt={badgeData.name} />
+      {showTooltip && <S.TooltipContent>{badgeData.name}</S.TooltipContent>}
     </S.Badge>
   );
 };

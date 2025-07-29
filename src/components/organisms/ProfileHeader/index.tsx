@@ -53,7 +53,7 @@ const ProfileHeader = ({
         <S.LocationSection>
           <Text variant="body" color="muted" align="left">
             {enterprise ? `🏢 ${enterprise}` : "📚 Em estudos"} · 📍 {location}{" "}
-            / Remoto
+            · 🏡 Remoto
           </Text>
         </S.LocationSection>
 

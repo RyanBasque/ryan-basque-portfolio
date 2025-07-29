@@ -1,25 +1,26 @@
 import styled from "styled-components";
+import { colors, spacing, borderRadius, fontSize, mediaQueries, transitions, zIndex } from "@/assets/styles";
 
 export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(13, 17, 23, 0.95);
+  z-index: ${zIndex.sticky};
+  background: rgba(${colors.background.primary.replace('#', '')}, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #30363d;
-  padding: 1rem 0;
+  border-bottom: 1px solid ${colors.border.primary};
+  padding: ${spacing.md} 0;
 `;
 
 export const HeaderContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 ${spacing.xl};
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
-    padding: 0 1rem;
+  ${mediaQueries.down.md} {
+    padding: 0 ${spacing.md};
   }
 `;
 
@@ -29,93 +30,93 @@ export const Logo = styled.div`
 `;
 
 export const LogoText = styled.h1`
-  color: #f0f6fc;
-  font-size: 1.5rem;
+  color: ${colors.text.primary};
+  font-size: ${fontSize.xxxl};
   font-weight: 700;
   margin: 0;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: ${transitions.normal};
 
   &:hover {
-    color: #58a6ff;
+    color: ${colors.primary.light};
   }
 
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
+  ${mediaQueries.down.md} {
+    font-size: ${fontSize.xl};
   }
 `;
 
 export const Navigation = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: ${spacing.xl};
 
-  @media (max-width: 768px) {
+  ${mediaQueries.down.md} {
     display: none;
   }
 `;
 
 export const NavLink = styled.a`
-  color: #e6edf3;
+  color: ${colors.text.primary};
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  padding: ${spacing.sm} ${spacing.md};
+  border-radius: ${borderRadius.md};
+  transition: ${transitions.normal};
 
   &:hover {
-    color: #58a6ff;
+    color: ${colors.primary.light};
     background: rgba(88, 166, 255, 0.1);
   }
 `;
 
 export const AuthButtons = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: ${spacing.md};
   align-items: center;
 
-  @media (max-width: 768px) {
-    gap: 0.5rem;
+  ${mediaQueries.down.md} {
+    gap: ${spacing.sm};
   }
 `;
 
 export const LoginButton = styled.button`
   background: transparent;
-  border: 1px solid #30363d;
-  color: #e6edf3;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border: 1px solid ${colors.border.primary};
+  color: ${colors.text.primary};
+  padding: ${spacing.sm} ${spacing.md};
+  border-radius: ${borderRadius.md};
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: ${transitions.normal};
 
   &:hover {
-    border-color: #58a6ff;
-    color: #58a6ff;
+    border-color: ${colors.primary.light};
+    color: ${colors.primary.light};
   }
 
-  @media (max-width: 768px) {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.875rem;
+  ${mediaQueries.down.md} {
+    padding: ${spacing.sm} ${spacing.sm};
+    font-size: ${fontSize.sm};
   }
 `;
 
 export const SignUpButton = styled.button`
-  background: #238636;
-  border: 1px solid #238636;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  background: ${colors.status.success};
+  border: 1px solid ${colors.status.success};
+  color: ${colors.neutral.white};
+  padding: ${spacing.sm} ${spacing.md};
+  border-radius: ${borderRadius.md};
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: ${transitions.normal};
 
   &:hover {
     background: #2ea043;
     border-color: #2ea043;
   }
 
-  @media (max-width: 768px) {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.875rem;
+  ${mediaQueries.down.md} {
+    padding: ${spacing.sm} ${spacing.sm};
+    font-size: ${fontSize.sm};
   }
 `;
