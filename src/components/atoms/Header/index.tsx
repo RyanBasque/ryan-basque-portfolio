@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 
 import NavigationMenu from "@/components/molecules/NavigationMenu";
 
@@ -12,6 +13,16 @@ const Header = ({
   user = null,
 }: HeaderProps): React.JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const shouldHideSignUpButton = useMemo(() => {
+    return pathname === "/register";
+  }, [pathname]);
+
+  const shouldHideLoginButton = useMemo(() => {
+    return pathname === "/login";
+  }, [pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,6 +30,14 @@ const Header = ({
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleSignUpClick = () => {
+    router.push("/register");
+  };
+
+  const handleLoginClick = () => {
+    router.push("/login");
   };
 
   const getInitials = (name?: string) => {
@@ -29,6 +48,10 @@ const Header = ({
       .join("")
       .substring(0, 2)
       .toUpperCase();
+  };
+
+  const handleHomeClick = () => {
+    router.push("/");
   };
 
   return (
@@ -42,13 +65,19 @@ const Header = ({
               <S.HamburgerLine isOpen={isMenuOpen} index={2} />
             </S.HamburgerButton>
           )}
-          <S.LogoText>Dev Portal</S.LogoText>
+          <S.LogoText onClick={handleHomeClick}>Dev Portal</S.LogoText>
         </S.Logo>
 
         {!user && (
           <S.AuthButtons isMenuOpen={isMenuOpen}>
-            <S.LoginButton>Login</S.LoginButton>
-            <S.SignUpButton>Criar Conta</S.SignUpButton>
+            {!shouldHideLoginButton && (
+              <S.LoginButton onClick={handleLoginClick}>Login</S.LoginButton>
+            )}
+            {!shouldHideSignUpButton && (
+              <S.SignUpButton onClick={handleSignUpClick}>
+                Criar Conta
+              </S.SignUpButton>
+            )}
           </S.AuthButtons>
         )}
 

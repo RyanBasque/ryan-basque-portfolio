@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import * as S from "./styles";
 import { NavigationMenuProps } from "./types";
 
@@ -6,6 +7,27 @@ const NavigationMenu = ({
   isOpen,
   onClose,
 }: NavigationMenuProps): React.JSX.Element => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const shouldHideSignUpButton = useMemo(() => {
+    return pathname === "/register";
+  }, [pathname]);
+
+  const shouldHideLoginButton = useMemo(() => {
+    return pathname === "/login";
+  }, [pathname]);
+
+  const handleSignUpClick = () => {
+    router.push("/register");
+    onClose();
+  };
+
+  const handleLoginClick = () => {
+    router.push("/login");
+    onClose();
+  };
+
   return (
     <>
       <S.MenuOverlay isOpen={isOpen} onClick={onClose} />
@@ -31,10 +53,16 @@ const NavigationMenu = ({
           </S.MobileNavigation>
 
           <S.MobileAuthButtons>
-            <S.MobileLoginButton onClick={onClose}>Login</S.MobileLoginButton>
-            <S.MobileSignUpButton onClick={onClose}>
-              Criar Conta
-            </S.MobileSignUpButton>
+            {!shouldHideLoginButton && (
+              <S.MobileLoginButton onClick={handleLoginClick}>
+                Login
+              </S.MobileLoginButton>
+            )}
+            {!shouldHideSignUpButton && (
+              <S.MobileSignUpButton onClick={handleSignUpClick}>
+                Criar Conta
+              </S.MobileSignUpButton>
+            )}
           </S.MobileAuthButtons>
         </S.MobileMenuContent>
       </S.MobileMenu>
