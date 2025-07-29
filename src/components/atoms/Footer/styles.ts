@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import { colors, spacing, fontSize, mediaQueries, transitions } from "@/assets/styles";
+
+import {
+  colors,
+  spacing,
+  fontSize,
+  mediaQueries,
+  transitions,
+} from "@/assets/styles";
 
 export const FooterContainer = styled.footer`
   background: ${colors.background.secondary};

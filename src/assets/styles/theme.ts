@@ -18,6 +18,7 @@ export const colors = {
   // Background colors
   background: {
     primary: "#0d1117",
+    primaryOpacity: "#0d11174D",
     secondary: "#161b22",
     tertiary: "#21262d",
     paper: "#30363d",

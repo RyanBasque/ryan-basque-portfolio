@@ -1,11 +1,12 @@
 import styled from "styled-components";
+
 import {
   colors,
   borderRadius,
   spacing,
   shadows,
   transitions,
-} from "../../../assets/styles";
+} from "@/assets/styles";
 
 export const CardContainer = styled.div`
   background: ${colors.background.paper};
