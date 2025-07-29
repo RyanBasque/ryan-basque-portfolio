@@ -1,25 +1,20 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
-interface UserData {
-  name: string;
-  email: string;
-  image: string;
-  githubId?: string;
-}
-
-interface AuthContextData {
-  user: UserData | null;
-  isLoading: boolean;
-  isAuthenticated: boolean;
-  sessionExpires: string | null;
+export interface User {
+  name?: string;
+  email?: string;
+  image?: string;
+  sessionExpires?: string;
 }
 
 interface AuthContextType {
-  auth: AuthContextData;
-  updateUser: (userData: UserData) => void;
-  clearAuth: () => void;
+  isLoading: boolean;
+  user?: User;
+  gitHubLogin: () => Promise<void>;
+  googleLogin: () => Promise<void>;
+  logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,66 +25,64 @@ export function AuthContextProvider({
   children: React.ReactNode;
 }) {
   const { data: session, status } = useSession();
-  console.log("🔐 AuthContextProvider: status =", status, "session =", session);
-  const [user, setUser] = useState<UserData | null>(null);
 
-  useEffect(() => {
-    if (session?.user) {
-      const userData: UserData = {
-        name: session.user.name || "",
-        email: session.user.email || "",
-        image: session.user.image || "",
-        githubId: session.user.githubId,
-      };
-      setUser(userData);
-
-      // Salvar no localStorage para persistência
-      localStorage.setItem("auth_user", JSON.stringify(userData));
-
-      console.log("🔐 Dados do usuário salvos no contexto:", userData);
-      console.log("⏰ Sessão expira em:", session.expires);
-    } else {
-      setUser(null);
-      localStorage.removeItem("auth_user");
+  const logout = async (): Promise<void> => {
+    try {
+      signOut({ callbackUrl: "/" });
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
     }
-  }, [session]);
+  };
 
-  // Carregar dados do localStorage na inicialização
-  useEffect(() => {
-    const savedUser = localStorage.getItem("auth_user");
-    if (savedUser && !session) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (error) {
-        console.error("Erro ao carregar dados do usuário:", error);
-        localStorage.removeItem("auth_user");
+  const gitHubLogin = async () => {
+    try {
+      const result = await signIn("github", {
+        callbackUrl: "/perfil",
+        redirect: false,
+      });
+
+      if (result?.error) {
+        console.error("GitHub login error:", result.error);
+        alert("Erro ao fazer login com GitHub. Tente novamente.");
       }
+    } catch (error) {
+      console.error("GitHub login error:", error);
+      alert("Erro ao fazer login com GitHub. Tente novamente.");
     }
-  }, [session]);
-
-  const updateUser = (userData: UserData) => {
-    setUser(userData);
-    localStorage.setItem("auth_user", JSON.stringify(userData));
   };
 
-  const clearAuth = () => {
-    setUser(null);
-    localStorage.removeItem("auth_user");
+  const googleLogin = async () => {
+    try {
+      const result = await signIn("google", {
+        callbackUrl: "/perfil",
+        redirect: false,
+      });
+
+      if (result?.error) {
+        console.error("Google login error:", result.error);
+        alert("Erro ao fazer login com Google. Tente novamente.");
+      }
+    } catch (error) {
+      console.error("Google login error:", error);
+      alert("Erro ao fazer login com Google. Tente novamente.");
+    }
   };
 
-  const authData: AuthContextData = {
-    user,
-    isLoading: status === "loading",
-    isAuthenticated: !!session || !!user,
-    sessionExpires: session?.expires || null,
+  const authData: User = {
+    name: session?.user?.name ?? undefined,
+    email: session?.user?.email ?? undefined,
+    image: session?.user?.image ?? undefined,
+    sessionExpires: session?.expires || undefined,
   };
 
   return (
     <AuthContext.Provider
       value={{
-        auth: authData,
-        updateUser,
-        clearAuth,
+        user: session?.user ? authData : undefined,
+        isLoading: status === "loading",
+        logout,
+        gitHubLogin,
+        googleLogin,
       }}
     >
       {children}

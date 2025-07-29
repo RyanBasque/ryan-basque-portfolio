@@ -1,4 +1,11 @@
 import React from "react";
+import Link from "next/link";
+
+import { useAuth } from "@/contexts/AuthContext";
+import UserProfile from "@/components/atoms/UserProfile";
+import Icon from "@/components/atoms/Icon";
+
+import { useCurrentRoute } from "@/hooks/useCurrentRoute";
 
 import * as S from "./styles";
 import { NavigationMenuProps } from "./types";
@@ -7,6 +14,14 @@ const NavigationMenu = ({
   isOpen,
   onClose,
 }: NavigationMenuProps): React.JSX.Element => {
+  const { user, logout } = useAuth();
+  const { shouldShowLogin } = useCurrentRoute();
+
+  const handleLogout = async () => {
+    await logout();
+    onClose();
+  };
+
   return (
     <>
       <S.MenuOverlay $isOpen={isOpen} onClick={onClose} />
@@ -19,21 +34,56 @@ const NavigationMenu = ({
         </S.MobileMenuHeader>
 
         <S.MobileMenuContent>
-          <S.MobileNavigation>
-            <S.MobileNavLink href="/perfil" onClick={onClose}>
-              Feed
-            </S.MobileNavLink>
-            <S.MobileNavLink href="/" onClick={onClose}>
-              Sobre o Projeto
-            </S.MobileNavLink>
-            <S.MobileNavLink href="/contato" onClick={onClose}>
-              Sobre o Criador
-            </S.MobileNavLink>
-          </S.MobileNavigation>
+          <S.MobileNavSection>
+            <S.MobileNavSectionTitle>Navegação</S.MobileNavSectionTitle>
+            <S.MobileNavigation>
+              <S.MobileNavLink href="/perfil" onClick={onClose}>
+                <S.NavLinkIcon>
+                  <Icon name="feed" />
+                </S.NavLinkIcon>
+                Feed
+              </S.MobileNavLink>
+              <S.MobileNavLink href="/" onClick={onClose}>
+                <S.NavLinkIcon>
+                  <Icon name="project" />
+                </S.NavLinkIcon>
+                Sobre o Projeto
+              </S.MobileNavLink>
+              <S.MobileNavLink href="/contato" onClick={onClose}>
+                <S.NavLinkIcon>
+                  <Icon name="user" />
+                </S.NavLinkIcon>
+                Sobre o Criador
+              </S.MobileNavLink>
+            </S.MobileNavigation>
+          </S.MobileNavSection>
 
-          <S.MobileAuthButtons>
-            <S.MobileLoginButton onClick={onClose}>Entrar</S.MobileLoginButton>
-          </S.MobileAuthButtons>
+          <div style={{ marginTop: "auto" }}>
+            {!user && shouldShowLogin && (
+              <S.MobileAuthButtons>
+                <Link href="/login" style={{ textDecoration: "none" }}>
+                  <S.MobileLoginButton onClick={onClose}>
+                    Entrar
+                  </S.MobileLoginButton>
+                </Link>
+              </S.MobileAuthButtons>
+            )}
+
+            {user && user.email && (
+              <S.UserProfileSection>
+                <UserProfile
+                  user={user}
+                  onLogout={handleLogout}
+                  variant="menu"
+                  size="large"
+                />
+              </S.UserProfileSection>
+            )}
+
+            <S.MenuFooter>
+              <S.MenuVersion>Dev Portal v1.0</S.MenuVersion>
+            </S.MenuFooter>
+          </div>
         </S.MobileMenuContent>
       </S.MobileMenu>
     </>

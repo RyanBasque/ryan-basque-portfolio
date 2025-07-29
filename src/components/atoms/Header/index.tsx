@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
@@ -9,16 +8,13 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useCurrentRoute } from "@/hooks/useCurrentRoute";
 
 import NavigationMenu from "@/components/molecules/NavigationMenu";
-
-import { getInitials } from "@/utils/getInitials";
+import UserProfile from "@/components/atoms/UserProfile";
 
 import { HeaderProps } from "./types";
 import * as S from "./styles";
 
-const Header = ({
-  showMenu = true,
-}: Omit<HeaderProps, "user" | "showLogin">): React.JSX.Element => {
-  const { auth } = useAuth();
+const Header = ({ showMenu = true }: HeaderProps): React.JSX.Element => {
+  const { user } = useAuth();
   const { shouldShowLogin, isLoginPage } = useCurrentRoute();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,36 +51,22 @@ const Header = ({
           </Link>
         </S.Logo>
 
-        {!auth.isAuthenticated && shouldShowLogin && !isLoginPage && (
+        {!user && shouldShowLogin && !isLoginPage && (
           <S.AuthButtons $isMenuOpen={isMenuOpen}>
             <Link href="/login">
-              <S.LoginButton>Login</S.LoginButton>
+              <S.LoginButton>Entrar</S.LoginButton>
             </Link>
           </S.AuthButtons>
         )}
 
-        {auth.isAuthenticated && auth.user && (
+        {user && (
           <S.UserInfo $isMenuOpen={isMenuOpen}>
-            <S.UserAvatar>
-              {auth.user.image ? (
-                <Image
-                  src={auth.user.image}
-                  alt={auth.user.name || "Usuário"}
-                  width={32}
-                  height={32}
-                  style={{ borderRadius: "50%" }}
-                />
-              ) : (
-                getInitials(auth.user.name)
-              )}
-            </S.UserAvatar>
-            <S.UserDetails>
-              <S.UserName>{auth.user.name}</S.UserName>
-              {auth.user.email && <S.UserEmail>{auth.user.email}</S.UserEmail>}
-            </S.UserDetails>
-            <S.LogoutButton onClick={handleLogout} title="Logout">
-              <span>↗</span>
-            </S.LogoutButton>
+            <UserProfile
+              user={user}
+              onLogout={handleLogout}
+              variant="default"
+              size="medium"
+            />
           </S.UserInfo>
         )}
       </S.HeaderContent>

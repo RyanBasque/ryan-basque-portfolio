@@ -52,7 +52,6 @@ export const LoginContainer = styled.div`
 `;
 
 export const LoginCard = styled.div`
-  background: ${colors.background.paper};
   backdrop-filter: blur(10px);
   border-radius: ${borderRadius.xl};
   padding: ${spacing.xxxl};

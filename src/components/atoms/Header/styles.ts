@@ -174,12 +174,7 @@ export const UserInfo = styled.div<{ $isMenuOpen: boolean }>`
   transition: ${transitions.normal};
 
   ${mediaQueries.down.md} {
-    opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? "1" : "0")};
-    visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? "visible" : "hidden")};
-    position: absolute;
-    right: ${spacing.md};
-    top: 50%;
-    transform: translateY(-50%);
+    display: none;
   }
 `;
 

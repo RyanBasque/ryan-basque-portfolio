@@ -23,12 +23,6 @@ export const metadata: Metadata = {
   description:
     "Plataforma moderna para desenvolvedores showcasearem seus projetos do GitHub",
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-    ],
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
