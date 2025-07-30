@@ -5,7 +5,7 @@ import {
   borderRadius,
   fontSize,
   transitions,
-} from "../../../assets/styles";
+} from "@/assets/styles";
 
 interface StatItemProps {
   $color?: string;
@@ -18,7 +18,7 @@ interface StatIconProps {
 export const StatsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: ${spacing.lg};
   flex: 1;
 `;
 
@@ -47,7 +47,7 @@ export const StatIcon = styled.div<StatIconProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: ${fontSize.xl};
   background: ${(props) => {
     switch (props.$color) {
       case "blue":
@@ -55,9 +55,9 @@ export const StatIcon = styled.div<StatIconProps>`
       case "yellow":
         return colors.status.warning;
       case "orange":
-        return "#fd7e14";
+        return colors.status.orange;
       case "purple":
-        return "#8b5cf6";
+        return colors.status.purple;
       default:
         return colors.secondary.main;
     }
@@ -68,7 +68,7 @@ export const StatContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: ${spacing.xs};
 `;
 
 export const StatLabel = styled.div`
@@ -89,6 +89,6 @@ export const StatCount = styled.div`
 
 export const StatArrow = styled.div`
   color: ${colors.text.secondary};
-  font-size: 1.1rem;
+  font-size: ${fontSize.lg};
   font-weight: bold;
 `;

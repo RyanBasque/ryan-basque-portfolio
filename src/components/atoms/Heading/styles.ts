@@ -18,7 +18,7 @@ const levelStyles = {
   2: css`
     font-size: ${fontSize["4xl"]};
     line-height: 1.3;
-    margin-bottom: 1.25rem;
+    margin-bottom: ${spacing.xl};
   `,
   3: css`
     font-size: ${fontSize.xxxl};
@@ -28,12 +28,12 @@ const levelStyles = {
   4: css`
     font-size: ${fontSize.xxl};
     line-height: 1.4;
-    margin-bottom: 0.875rem;
+    margin-bottom: ${spacing.lg};
   `,
   5: css`
     font-size: ${fontSize.xl};
     line-height: 1.5;
-    margin-bottom: 0.75rem;
+    margin-bottom: ${spacing.lg};
   `,
   6: css`
     font-size: ${fontSize.md};

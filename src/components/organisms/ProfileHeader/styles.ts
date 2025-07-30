@@ -81,7 +81,7 @@ export const ProfileImage = styled.img`
 export const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: ${spacing.lg};
 `;
 
 export const ProfileName = styled.div`
@@ -111,10 +111,10 @@ export const StatusBadge = styled.div`
   display: flex;
   align-items: center;
   gap: ${spacing.sm};
-  padding: ${spacing.sm} 0.75rem;
+  padding: ${spacing.sm} ${spacing.lg};
   background: ${colors.secondary.main};
   border: 1px solid ${colors.border.primary};
-  border-radius: 20px;
+  border-radius: ${borderRadius.xxl};
   width: fit-content;
 
   span {
@@ -122,7 +122,7 @@ export const StatusBadge = styled.div`
   }
 
   ${mediaQueries.down.sm} {
-    margin: 10px auto;
+    margin: ${spacing.sm} auto;
   }
 `;
 
@@ -172,7 +172,7 @@ export const FollowersSection = styled.div`
 `;
 
 export const BadgeEmoji = styled.span`
-  font-size: 16px;
+  font-size: ${fontSize.md};
   line-height: 1;
 `;
 
@@ -188,6 +188,6 @@ export const BadgesSection = styled.div`
   }
 
   ${mediaQueries.down.sm} {
-    gap: 0.5rem;
+    gap: ${spacing.sm};
   }
 `;

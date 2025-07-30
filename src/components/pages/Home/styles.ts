@@ -147,7 +147,7 @@ export const FeatureCard = styled.div`
 `;
 
 export const FeatureIcon = styled.div`
-  font-size: 2.5rem;
+  font-size: ${fontSize["5xl"]};
   margin-bottom: ${spacing.md};
 `;
 

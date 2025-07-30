@@ -45,6 +45,21 @@ export const colors = {
     warning: "#d29922",
     error: "#da3633",
     info: "#58a6ff",
+    orange: "#fd7e14",
+    purple: "#8b5cf6",
+  },
+
+  // Social/External colors
+  social: {
+    github: {
+      primary: "#24292e",
+      secondary: "#1a1e22",
+      border: "#6e7681",
+    },
+    google: {
+      primary: "#4285f4",
+      secondary: "#1a73e8",
+    },
   },
 
   // Neutral colors
@@ -192,6 +207,13 @@ export const buttonSizes = {
   },
 };
 
+// Gradient configurations
+export const gradients = {
+  github: `linear-gradient(135deg, #24292e 0%, #1a1e22 100%)`,
+  google: `linear-gradient(135deg, #4285f4 0%, #1a73e8 100%)`,
+  shimmer: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)`,
+};
+
 export const theme = {
   colors,
   breakpoints,
@@ -203,6 +225,7 @@ export const theme = {
   transitions,
   mediaQueries,
   buttonSizes,
+  gradients,
 };
 
 export default theme;

@@ -7,6 +7,7 @@ import {
   shadows,
   fontSize,
   transitions,
+  gradients,
 } from "@/assets/styles";
 
 const pulse = keyframes`
@@ -98,9 +99,7 @@ export const LoginButton = styled.button<{
   border: 1px solid ${colors.border.primary};
   border-radius: ${borderRadius.lg};
   background: ${({ $variant }) =>
-    $variant === "github"
-      ? "linear-gradient(135deg, #24292e 0%, #1a1e22 100%)"
-      : "linear-gradient(135deg, #4285f4 0%, #1a73e8 100%)"};
+    $variant === "github" ? gradients.github : gradients.google};
   color: ${colors.neutral.white};
   font-size: ${fontSize.md};
   font-weight: 600;
@@ -114,7 +113,9 @@ export const LoginButton = styled.button<{
     box-shadow: ${({ $loading }) =>
       $loading ? "none" : `0 8px 32px rgba(0, 0, 0, 0.3)`};
     border-color: ${({ $variant }) =>
-      $variant === "github" ? "#6e7681" : "#4285f4"};
+      $variant === "github"
+        ? colors.social.github.border
+        : colors.social.google.primary};
   }
 
   &:active {
@@ -128,12 +129,7 @@ export const LoginButton = styled.button<{
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
+    background: ${gradients.shimmer};
     transition: left 0.6s;
   }
 
@@ -285,7 +281,7 @@ export const GitHubButton = styled.button<{ disabled?: boolean }>`
   padding: ${spacing.lg} ${spacing.xl};
   border: 1px solid ${colors.border.primary};
   border-radius: ${borderRadius.lg};
-  background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+  background: ${gradients.github};
   color: ${colors.neutral.white};
   font-size: ${fontSize.md};
   font-weight: 600;
@@ -303,7 +299,7 @@ export const GitHubButton = styled.button<{ disabled?: boolean }>`
     transform: ${({ disabled }) => (disabled ? "none" : "translateY(-2px)")};
     box-shadow: ${({ disabled }) =>
       disabled ? "none" : `0 8px 32px rgba(0, 0, 0, 0.3)`};
-    border-color: #6e7681;
+    border-color: ${colors.social.github.border};
   }
 
   &:active {
@@ -334,7 +330,7 @@ export const GoogleButton = styled.button<{ disabled?: boolean }>`
   padding: ${spacing.lg} ${spacing.xl};
   border: 1px solid ${colors.border.primary};
   border-radius: ${borderRadius.lg};
-  background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
+  background: ${gradients.google};
   color: ${colors.neutral.white};
   font-size: ${fontSize.md};
   font-weight: 600;
@@ -352,7 +348,7 @@ export const GoogleButton = styled.button<{ disabled?: boolean }>`
     transform: ${({ disabled }) => (disabled ? "none" : "translateY(-2px)")};
     box-shadow: ${({ disabled }) =>
       disabled ? "none" : `0 8px 32px rgba(0, 0, 0, 0.3)`};
-    border-color: #4285f4;
+    border-color: ${colors.social.google.primary};
   }
 
   &:active {

@@ -7,6 +7,7 @@ import {
   borderRadius,
   shadows,
   transitions,
+  fontSize,
 } from "@/assets/styles";
 
 export const HomeContainer = styled.div`
@@ -74,7 +75,7 @@ export const SkillsSection = styled.section`
 
     h2 {
       margin-bottom: ${spacing.md};
-      font-size: 1.375rem;
+      font-size: ${fontSize.xxl};
     }
   }
 
@@ -85,7 +86,7 @@ export const SkillsSection = styled.section`
 
     h2 {
       margin-bottom: ${spacing.md};
-      font-size: 1.25rem;
+      font-size: ${fontSize.xl};
     }
   }
 `;
@@ -126,7 +127,7 @@ export const SkillCard = styled.div`
   h3 {
     color: ${colors.primary.light};
     margin-bottom: ${spacing.sm};
-    font-size: 1.125rem;
+    font-size: ${fontSize.lg};
     font-weight: 600;
   }
 
@@ -134,18 +135,18 @@ export const SkillCard = styled.div`
     color: ${colors.text.primary};
     line-height: 1.5;
     margin: 0;
-    font-size: 0.9rem;
+    font-size: ${fontSize.sm};
   }
 
   ${mediaQueries.down.md} {
     padding: ${spacing.md};
 
     h3 {
-      font-size: 1rem;
+      font-size: ${fontSize.md};
     }
 
     p {
-      font-size: 0.875rem;
+      font-size: ${fontSize.sm};
     }
   }
 
@@ -153,12 +154,12 @@ export const SkillCard = styled.div`
     padding: ${spacing.md};
 
     h3 {
-      font-size: 0.95rem;
+      font-size: ${fontSize.md};
       margin-bottom: ${spacing.xs};
     }
 
     p {
-      font-size: 0.85rem;
+      font-size: ${fontSize.xs};
       line-height: 1.4;
     }
   }
