@@ -134,20 +134,18 @@ export const lightColors = {
     purple: "#8250df", // Roxo ajustado
   },
 
-  // Social/External colors (ajustados)
   social: {
     github: {
-      primary: "#1f2328", // GitHub em modo claro
+      primary: "#1f2328",
       secondary: "#f6f8fa",
       border: "#d1d9e0",
     },
     google: {
-      primary: "#1a73e8", // Google azul padrão
+      primary: "#1a73e8",
       secondary: "#4285f4",
     },
   },
 
-  // Neutral colors (mesmo sistema)
   neutral: {
     white: "#ffffff",
     black: "#000000",

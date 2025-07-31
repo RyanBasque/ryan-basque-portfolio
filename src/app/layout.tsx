@@ -6,9 +6,10 @@ import StyledComponentsRegistry from "@/lib/registry";
 
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
+import AuthProvider from "@/components/providers/AuthProvider";
+
 import Header from "@/components/atoms/Header";
 import Footer from "@/components/atoms/Footer";
-import AuthProvider from "@/components/providers/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
