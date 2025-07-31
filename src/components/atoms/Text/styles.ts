@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { colors, fontSize } from "@/assets/styles/theme";
+import { fontSize } from "@/assets/styles/theme";
 
 interface StyledTextProps {
   $variant: "body" | "caption" | "subtitle";
@@ -26,13 +26,13 @@ const variantStyles = {
 
 const colorStyles = {
   primary: css`
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
   `,
   secondary: css`
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
   `,
   muted: css`
-    color: ${colors.text.disabled};
+    color: ${({ theme }) => theme.colors.text.disabled};
   `,
 };
 

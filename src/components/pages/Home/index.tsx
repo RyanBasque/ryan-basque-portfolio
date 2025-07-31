@@ -1,14 +1,28 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import Heading from "@/components/atoms/Heading";
 import Text from "@/components/atoms/Text";
 import Button from "@/components/atoms/Button";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 import * as S from "./styles";
 
 const Home = () => {
+  const router = useRouter();
+
+  const { displayText, isComplete } = useTypewriter({
+    text: "Developer Portal",
+    speed: 150,
+    delay: 500,
+  });
+
+  const handleRedirect = () => {
+    router.push("/login");
+  };
+
   const features = [
     {
       icon: "🔗",
@@ -20,7 +34,7 @@ const Home = () => {
       icon: "🎨",
       title: "Portfolio Personalizado",
       description:
-        "Crie um portfolio profissional e atrativo com templates customizáveis e responsivos.",
+        "Crie um portfolio profissional e atrativo de forma mais simples.",
     },
     {
       icon: "🚀",
@@ -43,10 +57,11 @@ const Home = () => {
       <S.HeroSection>
         <S.HeroContent>
           <Heading level={2} color="primary" align="center">
-            Sobre o Portal de Desenvolvedores
+            {displayText}
+            {!isComplete && <S.Cursor>|</S.Cursor>}
           </Heading>
           <Text variant="body" color="secondary" align="center">
-            Uma plataforma moderna e intuitiva para desenvolvedores showcasearem
+            Uma plataforma moderna e intuitiva para desenvolvedores destacarem
             seus projetos do GitHub
           </Text>
         </S.HeroContent>
@@ -168,8 +183,8 @@ const Home = () => {
             plataforma para impulsionar suas carreiras.
           </Text>
           <S.CTAButtons>
-            <Button variant="primary" size="large">
-              Conectar com GitHub
+            <Button onClick={handleRedirect} variant="primary" size="xxlarge">
+              Começar
             </Button>
           </S.CTAButtons>
         </S.ContentWrapper>

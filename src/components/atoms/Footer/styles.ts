@@ -1,16 +1,10 @@
 import styled from "styled-components";
 
-import {
-  colors,
-  spacing,
-  fontSize,
-  mediaQueries,
-  transitions,
-} from "@/assets/styles";
+import { spacing, fontSize, mediaQueries, transitions } from "@/assets/styles";
 
 export const FooterContainer = styled.footer`
-  background: ${colors.background.secondary};
-  border-top: 1px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.secondary};
+  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
   padding: ${spacing.xl} 0;
   margin-top: auto;
   height: 5vh;
@@ -32,7 +26,7 @@ export const FooterContent = styled.div`
 `;
 
 export const FooterText = styled.p`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${fontSize.md};
   margin: 0;
   display: flex;
@@ -43,19 +37,19 @@ export const FooterText = styled.p`
 `;
 
 export const AuthorLink = styled.a`
-  color: ${colors.primary.light};
+  color: ${({ theme }) => theme.colors.primary.light};
   text-decoration: none;
   font-weight: 600;
   transition: ${transitions.normal};
 
   &:hover {
-    color: ${colors.primary.main};
+    color: ${({ theme }) => theme.colors.primary.main};
     text-decoration: underline;
   }
 `;
 
 export const Copyright = styled.p`
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.sm};
   margin: 0;
 `;

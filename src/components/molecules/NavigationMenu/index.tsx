@@ -81,7 +81,7 @@ const NavigationMenu = ({
             )}
 
             <S.MenuFooter>
-              <S.MenuVersion>Dev Portal v1.0</S.MenuVersion>
+              <S.MenuVersion>Developer Portal</S.MenuVersion>
             </S.MenuFooter>
           </div>
         </S.MobileMenuContent>

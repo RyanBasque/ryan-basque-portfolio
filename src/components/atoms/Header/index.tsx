@@ -9,6 +9,7 @@ import { useCurrentRoute } from "@/hooks/useCurrentRoute";
 
 import NavigationMenu from "@/components/molecules/NavigationMenu";
 import UserProfile from "@/components/atoms/UserProfile";
+import ThemeToggle from "@/components/atoms/ThemeToggle";
 
 import { HeaderProps } from "./types";
 import * as S from "./styles";
@@ -59,16 +60,21 @@ const Header = ({ showMenu = true }: HeaderProps): React.JSX.Element => {
           </S.AuthButtons>
         )}
 
-        {user && (
-          <S.UserInfo $isMenuOpen={isMenuOpen}>
-            <UserProfile
-              user={user}
-              onLogout={handleLogout}
-              variant="default"
-              size="medium"
-            />
-          </S.UserInfo>
-        )}
+        <S.AccountAndTheameWrapper>
+          <ThemeToggle />
+          <S.FexContainer>
+            {user && (
+              <S.UserInfo $isMenuOpen={isMenuOpen}>
+                <UserProfile
+                  user={user}
+                  onLogout={handleLogout}
+                  variant="default"
+                  size="medium"
+                />
+              </S.UserInfo>
+            )}
+          </S.FexContainer>
+        </S.AccountAndTheameWrapper>
       </S.HeaderContent>
 
       {showMenu && <NavigationMenu isOpen={isMenuOpen} onClose={closeMenu} />}

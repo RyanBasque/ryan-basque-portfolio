@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { colors, fontSize, spacing } from "@/assets/styles/theme";
+import { fontSize, spacing } from "@/assets/styles/theme";
 
 interface StyledHeadingProps {
   $level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -44,13 +44,13 @@ const levelStyles = {
 
 const colorStyles = {
   primary: css`
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
   `,
   secondary: css`
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
   `,
   accent: css`
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
   `,
 };
 

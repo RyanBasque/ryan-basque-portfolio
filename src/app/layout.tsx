@@ -4,6 +4,8 @@ import "./globals.css";
 
 import StyledComponentsRegistry from "@/lib/registry";
 
+import { ThemeProvider } from "@/contexts/ThemeContext";
+
 import Header from "@/components/atoms/Header";
 import Footer from "@/components/atoms/Footer";
 import AuthProvider from "@/components/providers/AuthProvider";
@@ -45,13 +47,15 @@ export default function RootLayout({
           padding: 0,
         }}
       >
-        <AuthProvider>
-          <StyledComponentsRegistry>
-            <Header />
-            <main style={{ flex: 1 }}>{children}</main>
-            <Footer />
-          </StyledComponentsRegistry>
-        </AuthProvider>
+        <StyledComponentsRegistry>
+          <ThemeProvider>
+            <AuthProvider>
+              <Header />
+              <main style={{ flex: 1 }}>{children}</main>
+              <Footer />
+            </AuthProvider>
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

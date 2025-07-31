@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import {
-  colors,
   mediaQueries,
   spacing,
   borderRadius,
@@ -17,8 +16,8 @@ export const HomeContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: ${spacing.xl};
-  background: ${colors.background.primary};
-  color: ${colors.text.primary};
+  background: ${({ theme }) => theme.colors.background.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
 
   ${mediaQueries.down.md} {
     padding: ${spacing.md};
@@ -58,14 +57,14 @@ export const MainContent = styled.div`
 `;
 
 export const SkillsSection = styled.section`
-  background: ${colors.background.secondary};
-  border: 1px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.xl};
   padding: ${spacing.xl};
   margin-top: ${spacing.xl};
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.lg};
   }
 
@@ -113,8 +112,8 @@ export const SkillsGrid = styled.div`
 `;
 
 export const SkillCard = styled.div`
-  background: ${colors.background.tertiary};
-  border: 1px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.tertiary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.lg};
   padding: ${spacing.lg};
   transition: ${transitions.normal};
@@ -125,14 +124,14 @@ export const SkillCard = styled.div`
   }
 
   h3 {
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
     margin-bottom: ${spacing.sm};
     font-size: ${fontSize.lg};
     font-weight: 600;
   }
 
   p {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     line-height: 1.5;
     margin: 0;
     font-size: ${fontSize.sm};
@@ -166,20 +165,20 @@ export const SkillCard = styled.div`
 `;
 
 export const ContactSection = styled.section`
-  background: ${colors.background.primary};
-  border: 2px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.primary};
+  border: 2px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.xl};
   padding: ${spacing.xl};
   text-align: center;
   margin-top: ${spacing.xl};
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.md};
   }
 
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     margin-bottom: ${spacing.lg};
   }
 `;

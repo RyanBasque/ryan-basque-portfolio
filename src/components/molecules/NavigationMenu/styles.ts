@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import {
-  colors,
   spacing,
   borderRadius,
   transitions,
@@ -18,11 +17,13 @@ export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   max-width: 320px;
   height: 100vh;
   transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "-100%")});
-  background: rgba(13, 17, 23, 0.95);
+  background: ${({ theme }) => theme.colors.background.primary}F5;
   backdrop-filter: blur(20px);
-  border-right: 1px solid ${colors.border.primary};
-  box-shadow: ${({ $isOpen }) =>
-    $isOpen ? `${shadows.xl}, inset 1px 0 0 rgba(88, 166, 255, 0.1)` : "none"};
+  border-right: 1px solid ${({ theme }) => theme.colors.border.primary};
+  box-shadow: ${({ $isOpen, theme }) =>
+    $isOpen
+      ? `${shadows.xl}, inset 1px 0 0 ${theme.colors.primary.main}1A`
+      : "none"};
   padding: 0;
   opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
   visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
@@ -57,9 +58,9 @@ export const MobileMenu = styled.div<{ $isOpen: boolean }>`
     bottom: 0;
     background: linear-gradient(
       135deg,
-      rgba(35, 139, 230, 0.05) 0%,
+      ${({ theme }) => theme.colors.primary.main}0D 0%,
       transparent 50%,
-      rgba(35, 139, 230, 0.02) 100%
+      ${({ theme }) => theme.colors.primary.main}05 100%
     );
     pointer-events: none;
     z-index: -1;
@@ -70,13 +71,13 @@ export const MobileMenuHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid ${colors.border.primary};
-  background: ${colors.background.secondary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   min-height: 64px;
 `;
 
 export const MobileMenuTitle = styled.h1`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${fontSize.xl};
   font-weight: 700;
   margin: 0;
@@ -88,7 +89,7 @@ export const MobileMenuTitle = styled.h1`
 export const CloseButton = styled.button`
   background: transparent;
   border: none;
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.xl};
   cursor: pointer;
   padding: ${spacing.sm};
@@ -100,10 +101,11 @@ export const CloseButton = styled.button`
   width: 36px;
   height: 36px;
   position: relative;
+  margin-right: ${spacing.xl};
 
   &:hover {
-    color: ${colors.text.primary};
-    background: ${colors.background.tertiary};
+    color: ${({ theme }) => theme.colors.text.primary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
     transform: scale(1.05);
   }
 
@@ -128,12 +130,12 @@ export const MobileMenuContent = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: ${colors.border.primary};
+    background: ${({ theme }) => theme.colors.border.primary};
     border-radius: 2px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: ${colors.border.secondary};
+    background: ${({ theme }) => theme.colors.border.secondary};
   }
 `;
 
@@ -143,7 +145,7 @@ export const MenuOverlay = styled.div<{ $isOpen: boolean }>`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
+  background: ${({ theme }) => theme.colors.neutral.black}4D;
   backdrop-filter: blur(4px);
   opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
   visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
@@ -186,11 +188,11 @@ export const MobileNavigation = styled.nav`
 `;
 
 export const MobileNavLink = styled.a`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   text-decoration: none;
   font-weight: 500;
   font-size: ${fontSize.md};
-  padding: ${spacing.md};
+  padding: ${spacing.sm};
   border-radius: ${borderRadius.lg};
   transition: all ${transitions.fast};
   display: flex;
@@ -198,19 +200,18 @@ export const MobileNavLink = styled.a`
   position: relative;
   background: transparent;
   border: 1px solid transparent;
-  min-height: 48px;
 
   &:hover {
-    color: ${colors.text.primary};
-    background: ${colors.background.tertiary};
-    border-color: ${colors.border.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
+    border-color: ${({ theme }) => theme.colors.border.primary};
     transform: translateX(4px);
     box-shadow: ${shadows.sm};
   }
 
   &:active {
     transform: translateX(2px) scale(0.98);
-    background: ${colors.background.paper};
+    background: ${({ theme }) => theme.colors.background.paper};
   }
 
   /* Add subtle left border accent on hover */
@@ -222,7 +223,7 @@ export const MobileNavLink = styled.a`
     transform: translateY(-50%);
     width: 3px;
     height: 0;
-    background: ${colors.primary.main};
+    background: ${({ theme }) => theme.colors.primary.main};
     border-radius: 0 2px 2px 0;
     transition: height ${transitions.fast};
   }
@@ -239,12 +240,12 @@ export const NavLinkIcon = styled.div`
   width: 20px;
   height: 20px;
   margin-right: ${spacing.md};
-  color: ${colors.primary.main};
+  color: ${({ theme }) => theme.colors.primary.main};
   transition: color ${transitions.fast};
   flex-shrink: 0;
 
   a:hover & {
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
   }
 `;
 
@@ -254,7 +255,7 @@ export const MobileNavSection = styled.div`
 `;
 
 export const MobileNavSectionTitle = styled.h3`
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.sm};
   font-weight: 600;
   text-transform: uppercase;
@@ -268,14 +269,14 @@ export const MobileAuthButtons = styled.div`
   flex-direction: column;
   gap: ${spacing.md};
   padding: ${spacing.xl};
-  border-top: 1px solid ${colors.border.primary};
-  background: ${colors.background.secondary};
+  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.secondary};
 `;
 
 export const MobileLoginButton = styled.button`
-  background: ${colors.primary.main};
+  background: ${({ theme }) => theme.colors.primary.main};
   border: none;
-  color: ${colors.neutral.white};
+  color: ${({ theme }) => theme.colors.neutral.white};
   padding: ${spacing.md} ${spacing.lg};
   border-radius: ${borderRadius.lg};
   font-weight: 600;
@@ -286,7 +287,7 @@ export const MobileLoginButton = styled.button`
   overflow: hidden;
 
   &:hover {
-    background: ${colors.primary.hover};
+    background: ${({ theme }) => theme.colors.primary.hover};
     transform: translateY(-1px);
     box-shadow: ${shadows.md};
   }
@@ -319,19 +320,19 @@ export const MobileLoginButton = styled.button`
 export const UserProfileSection = styled.div`
   width: auto;
   padding: ${spacing.md};
-  border-top: 1px solid ${colors.border.primary};
-  background: ${colors.background.secondary};
+  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.secondary};
 `;
 
 export const MenuFooter = styled.div`
   padding: ${spacing.md} ${spacing.xl};
-  border-top: 1px solid ${colors.border.primary};
-  background: ${colors.background.secondary};
+  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   text-align: center;
 `;
 
 export const MenuVersion = styled.p`
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.xs};
   margin: 0;
   font-weight: 400;

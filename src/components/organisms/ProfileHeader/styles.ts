@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-import {
-  colors,
-  spacing,
-  borderRadius,
-  fontSize,
-  mediaQueries,
-} from "@/assets/styles";
+import { spacing, borderRadius, fontSize, mediaQueries } from "@/assets/styles";
 
 export const ProfileHeaderContainer = styled.div`
   display: flex;
@@ -14,10 +8,10 @@ export const ProfileHeaderContainer = styled.div`
   gap: ${spacing.lg};
   max-width: 500px;
   padding: ${spacing.lg};
-  background: ${colors.background.primary};
+  background: ${({ theme }) => theme.colors.background.primary};
   border-radius: ${borderRadius.xl};
-  color: ${colors.text.primary};
-  border: 1px solid ${colors.border.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
 
   ${mediaQueries.down.md} {
     max-width: 100%;
@@ -69,7 +63,7 @@ export const ProfileImage = styled.img`
   width: 100px;
   height: 100px;
   border-radius: ${borderRadius.full};
-  border: 2px solid ${colors.border.primary};
+  border: 2px solid ${({ theme }) => theme.colors.border.primary};
   object-fit: cover;
 
   ${mediaQueries.down.sm} {
@@ -86,7 +80,7 @@ export const ProfileInfo = styled.div`
 
 export const ProfileName = styled.div`
   h1 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     font-size: ${fontSize.xxxl};
     font-weight: 600;
     margin: 0;
@@ -100,7 +94,7 @@ export const ProfileName = styled.div`
 
 export const ProfileHandle = styled.div`
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     margin: 0;
   }
 `;
@@ -112,8 +106,8 @@ export const StatusBadge = styled.div`
   align-items: center;
   gap: ${spacing.sm};
   padding: ${spacing.sm} ${spacing.lg};
-  background: ${colors.secondary.main};
-  border: 1px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.secondary.main};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.xxl};
   width: fit-content;
 
@@ -128,7 +122,7 @@ export const StatusBadge = styled.div`
 
 export const StatusText = styled.div`
   p {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin: 0;
     font-size: ${fontSize.sm};
   }
@@ -136,7 +130,7 @@ export const StatusText = styled.div`
 
 export const DescriptionSection = styled.div`
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     line-height: 1.5;
     margin: 0;
   }
@@ -144,7 +138,7 @@ export const DescriptionSection = styled.div`
 
 export const LocationSection = styled.div`
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     margin: 0;
     font-size: ${fontSize.sm};
   }
@@ -152,7 +146,7 @@ export const LocationSection = styled.div`
 
 export const WebsiteSection = styled.div`
   p {
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
     margin: 0;
     font-size: ${fontSize.sm};
     cursor: pointer;
@@ -165,7 +159,7 @@ export const WebsiteSection = styled.div`
 
 export const FollowersSection = styled.div`
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     margin: 0;
     font-size: ${fontSize.sm};
   }
