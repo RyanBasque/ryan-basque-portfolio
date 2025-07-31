@@ -52,29 +52,31 @@ const Header = ({ showMenu = true }: HeaderProps): React.JSX.Element => {
           </Link>
         </S.Logo>
 
-        {!user && shouldShowLogin && !isLoginPage && (
-          <S.AuthButtons $isMenuOpen={isMenuOpen}>
-            <Link href="/login">
-              <S.LoginButton>Entrar</S.LoginButton>
-            </Link>
-          </S.AuthButtons>
-        )}
+        <S.ThemeAndLoginWrapper>
+          {!user && shouldShowLogin && !isLoginPage && (
+            <S.AuthButtons $isMenuOpen={isMenuOpen}>
+              <Link href="/login">
+                <S.LoginButton>Entrar</S.LoginButton>
+              </Link>
+            </S.AuthButtons>
+          )}
 
-        <S.AccountAndTheameWrapper>
-          <ThemeToggle />
-          <S.FexContainer>
-            {user && (
-              <S.UserInfo $isMenuOpen={isMenuOpen}>
-                <UserProfile
-                  user={user}
-                  onLogout={handleLogout}
-                  variant="default"
-                  size="medium"
-                />
-              </S.UserInfo>
-            )}
-          </S.FexContainer>
-        </S.AccountAndTheameWrapper>
+          <S.AccountAndTheameWrapper>
+            <ThemeToggle />
+            <S.FexContainer>
+              {user && (
+                <S.UserInfo $isMenuOpen={isMenuOpen}>
+                  <UserProfile
+                    user={user}
+                    onLogout={handleLogout}
+                    variant="default"
+                    size="medium"
+                  />
+                </S.UserInfo>
+              )}
+            </S.FexContainer>
+          </S.AccountAndTheameWrapper>
+        </S.ThemeAndLoginWrapper>
       </S.HeaderContent>
 
       {showMenu && <NavigationMenu isOpen={isMenuOpen} onClose={closeMenu} />}

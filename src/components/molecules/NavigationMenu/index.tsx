@@ -49,7 +49,7 @@ const NavigationMenu = ({
                 </S.NavLinkIcon>
                 Sobre o Projeto
               </S.MobileNavLink>
-              <S.MobileNavLink href="/contato" onClick={onClose}>
+              <S.MobileNavLink href="/perfil" onClick={onClose}>
                 <S.NavLinkIcon>
                   <Icon name="user" />
                 </S.NavLinkIcon>

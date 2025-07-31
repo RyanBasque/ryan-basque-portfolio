@@ -267,10 +267,17 @@ export const MobileNavSectionTitle = styled.h3`
 export const MobileAuthButtons = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: ${spacing.md};
   padding: ${spacing.xl};
   border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
   background: ${({ theme }) => theme.colors.background.secondary};
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const MobileLoginButton = styled.button`

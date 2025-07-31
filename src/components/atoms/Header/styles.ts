@@ -253,3 +253,9 @@ export const AccountAndTheameWrapper = styled.div`
   align-items: center;
   gap: ${spacing.md};
 `;
+
+export const ThemeAndLoginWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${spacing.md};
+`;
