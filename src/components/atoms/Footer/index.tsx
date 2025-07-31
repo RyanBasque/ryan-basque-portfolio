@@ -1,7 +1,7 @@
 "use client";
-import React from 'react';
+import React from "react";
 
-import * as S from './styles';
+import * as S from "./styles";
 
 const Footer = (): React.JSX.Element => {
   const currentYear = new Date().getFullYear();
@@ -10,8 +10,12 @@ const Footer = (): React.JSX.Element => {
     <S.FooterContainer>
       <S.FooterContent>
         <S.FooterText>
-          Criado com ❤️ por{' '}
-          <S.AuthorLink href="https://github.com/RyanBasque" target="_blank" rel="noopener noreferrer">
+          Criado com ❤️ por{" "}
+          <S.AuthorLink
+            href="https://github.com/RyanBasque"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Ryan Basque
           </S.AuthorLink>
         </S.FooterText>

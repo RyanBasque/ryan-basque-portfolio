@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {
-  colors,
   mediaQueries,
   spacing,
   borderRadius,
@@ -10,19 +9,19 @@ import {
 
 export const AboutContainer = styled.div`
   min-height: calc(100vh - 120px);
-  background: ${colors.background.primary};
-  color: ${colors.text.primary};
+  background: ${({ theme }) => theme.colors.background.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export const HeroSection = styled.section`
   background: linear-gradient(
     135deg,
-    ${colors.background.secondary} 0%,
-    ${colors.background.primary} 100%
+    ${({ theme }) => theme.colors.background.secondary} 0%,
+    ${({ theme }) => theme.colors.background.primary} 100%
   );
   padding: ${spacing.xxxl} ${spacing.xl};
   text-align: center;
-  border-bottom: 1px solid ${colors.border.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border.primary};
 
   ${mediaQueries.down.md} {
     padding: ${spacing.xxxl} ${spacing.md};
@@ -34,7 +33,7 @@ export const HeroContent = styled.div`
   margin: 0 auto;
 
   h1 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.lg};
     font-size: ${fontSize["5xl"]};
     font-weight: 700;
@@ -45,7 +44,7 @@ export const HeroContent = styled.div`
   }
 
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     font-size: ${fontSize.xl};
     line-height: 1.6;
   }
@@ -63,16 +62,16 @@ export const ContentWrapper = styled.div`
 
 export const MissionSection = styled.section`
   padding: ${spacing.xxxl} 0;
-  background: ${colors.background.primary};
+  background: ${({ theme }) => theme.colors.background.primary};
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.lg};
     font-size: ${fontSize["4xl"]};
   }
 
   p {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     font-size: ${fontSize.lg};
     line-height: 1.7;
     max-width: 800px;
@@ -89,10 +88,10 @@ export const MissionSection = styled.section`
 
 export const FeaturesSection = styled.section`
   padding: ${spacing.xxxl} 0;
-  background: ${colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.xxxl};
     font-size: ${fontSize["4xl"]};
   }
@@ -120,8 +119,8 @@ export const FeaturesGrid = styled.div`
 `;
 
 export const FeatureCard = styled.div`
-  background: ${colors.background.tertiary};
-  border: 1px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.background.tertiary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.xl};
   padding: ${spacing.xl};
   text-align: center;
@@ -129,31 +128,31 @@ export const FeatureCard = styled.div`
 
   &:hover {
     transform: translateY(-4px);
-    border-color: ${colors.primary.light};
+    border-color: ${({ theme }) => theme.colors.primary.light};
   }
 
   h3 {
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
     margin: ${spacing.md} 0;
     font-size: ${fontSize.xl};
     font-weight: 600;
   }
 
   p {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     line-height: 1.6;
     margin: 0;
   }
 `;
 
 export const FeatureIcon = styled.div`
-  font-size: 2.5rem;
+  font-size: ${fontSize["5xl"]};
   margin-bottom: ${spacing.md};
 `;
 
 export const BenefitsSection = styled.section`
   padding: ${spacing.xxxl} 0;
-  background: ${colors.background.primary};
+  background: ${({ theme }) => theme.colors.background.primary};
 
   ${mediaQueries.down.md} {
     padding: ${spacing.xxxl} 0;
@@ -167,13 +166,13 @@ export const BenefitsContent = styled.div`
   align-items: start;
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.lg};
     font-size: ${fontSize["4xl"]};
   }
 
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     font-size: ${fontSize.lg};
     line-height: 1.7;
   }
@@ -199,11 +198,11 @@ export const BenefitItem = styled.li`
   align-items: center;
   gap: ${spacing.md};
   padding: ${spacing.sm} 0;
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${fontSize.lg};
 
   span {
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
     font-weight: 600;
     font-size: ${fontSize.xl};
   }
@@ -211,16 +210,16 @@ export const BenefitItem = styled.li`
 
 export const TechnologySection = styled.section`
   padding: ${spacing.xxxl} 0;
-  background: ${colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.lg};
     font-size: ${fontSize["4xl"]};
   }
 
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     font-size: ${fontSize.lg};
     line-height: 1.7;
     margin-bottom: ${spacing.xxxl};
@@ -257,20 +256,23 @@ export const TechItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: ${spacing.sm};
-  padding: ${spacing.lg};
-  background: ${colors.background.tertiary};
-  border: 1px solid ${colors.border.primary};
+  padding: ${spacing.sm};
+  background: ${({ theme }) => theme.colors.background.tertiary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.xl};
   transition: ${transitions.normal};
+  min-width: 120px;
+  min-height: 120px;
 
   &:hover {
     transform: translateY(-2px);
-    border-color: ${colors.primary.light};
+    border-color: ${({ theme }) => theme.colors.primary.light};
   }
 
   span {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     font-weight: 500;
     font-size: ${fontSize.sm};
   }
@@ -280,19 +282,19 @@ export const CTASection = styled.section`
   padding: ${spacing.xxxl} 0;
   background: linear-gradient(
     135deg,
-    ${colors.background.primary} 0%,
-    ${colors.background.secondary} 100%
+    ${({ theme }) => theme.colors.background.primary} 0%,
+    ${({ theme }) => theme.colors.background.secondary} 100%
   );
   text-align: center;
 
   h2 {
-    color: ${colors.text.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: ${spacing.lg};
     font-size: ${fontSize["4xl"]};
   }
 
   p {
-    color: ${colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary};
     font-size: ${fontSize.lg};
     line-height: 1.7;
     margin-bottom: ${spacing.xxxl};
@@ -324,5 +326,24 @@ export const CTAButtons = styled.div`
     gap: ${spacing.md};
     flex-direction: column;
     align-items: center;
+  }
+`;
+
+export const Cursor = styled.span`
+  display: inline-block;
+  color: ${({ theme }) => theme.colors.primary.main};
+  animation: blink 1s infinite;
+  margin-left: 2px;
+  font-weight: 300;
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
   }
 `;

@@ -37,7 +37,7 @@ const NavigationMenu = ({
           <S.MobileNavSection>
             <S.MobileNavSectionTitle>Navegação</S.MobileNavSectionTitle>
             <S.MobileNavigation>
-              <S.MobileNavLink href="/perfil" onClick={onClose}>
+              <S.MobileNavLink href="/feed" onClick={onClose}>
                 <S.NavLinkIcon>
                   <Icon name="feed" />
                 </S.NavLinkIcon>
@@ -81,7 +81,7 @@ const NavigationMenu = ({
             )}
 
             <S.MenuFooter>
-              <S.MenuVersion>Dev Portal v1.0</S.MenuVersion>
+              <S.MenuVersion>Developer Portal</S.MenuVersion>
             </S.MenuFooter>
           </div>
         </S.MobileMenuContent>

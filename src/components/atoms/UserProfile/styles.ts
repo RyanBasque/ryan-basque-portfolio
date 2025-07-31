@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-import {
-  colors,
-  spacing,
-  borderRadius,
-  transitions,
-  fontSize,
-} from "@/assets/styles";
+import { spacing, borderRadius, transitions, fontSize } from "@/assets/styles";
 
 export const UserProfileContainer = styled.div<{
   $variant: "default" | "menu";
@@ -16,19 +10,19 @@ export const UserProfileContainer = styled.div<{
   gap: ${spacing.sm};
   width: auto;
 
-  ${({ $variant }) =>
+  ${({ $variant, theme }) =>
     $variant === "menu" &&
     `
     justify-content: space-between;
     padding: ${spacing.md} ${spacing.lg};
-    background: ${colors.background.tertiary};
-    border: 1px solid ${colors.border.primary};
+    background: ${theme.colors.background.tertiary};
+    border: 0.5px solid ${theme.colors.border.primary};
     border-radius: ${borderRadius.lg};
     transition: all ${transitions.fast};
     
     &:hover {
-      background: ${colors.background.paper};
-      border-color: ${colors.primary.main};
+      background: ${theme.colors.background.paper};
+      border-color: ${theme.colors.primary.main};
     }
   `}
 
@@ -46,31 +40,38 @@ export const UserInfo = styled.div`
   gap: ${spacing.sm};
   flex: 1;
   min-width: 0;
+  cursor: pointer;
+  border-radius: ${borderRadius.md};
+  padding: ${spacing.xs};
+  transition: all ${transitions.fast};
 
-  /* Mobile and tablet - full width */
+  &:hover {
+    background: ${({ theme }) => theme.colors.background.paper};
+  }
+
   @media (max-width: 1024px) {
     width: 100%;
   }
 `;
 
 export const UserAvatar = styled.div<{ $size: "medium" | "large" }>`
-  width: ${({ $size }) => ($size === "large" ? "48px" : "32px")};
-  height: ${({ $size }) => ($size === "large" ? "48px" : "32px")};
+  width: ${({ $size }) => ($size === "large" ? "60px" : "32px")};
+  height: ${({ $size }) => ($size === "large" ? "60px" : "32px")};
   border-radius: ${borderRadius.full};
-  background: ${colors.primary.light};
+  background: ${({ theme }) => theme.colors.primary.light};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${colors.neutral.white};
+  color: ${({ theme }) => theme.colors.neutral.white};
   font-weight: 600;
   font-size: ${({ $size }) => ($size === "large" ? fontSize.md : fontSize.sm)};
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid ${colors.border.primary};
+  border: 2px solid ${({ theme }) => theme.colors.border.primary};
   transition: all ${transitions.fast};
 
   &:hover {
-    border-color: ${colors.primary.main};
+    border-color: ${({ theme }) => theme.colors.primary.main};
     transform: scale(1.05);
   }
 `;
@@ -91,7 +92,7 @@ export const UserDetails = styled.div<{ $variant: "default" | "menu" }>`
 `;
 
 export const UserName = styled.span`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-weight: 600;
   font-size: ${fontSize.md};
   line-height: 1.3;
@@ -101,7 +102,7 @@ export const UserName = styled.span`
 `;
 
 export const UserEmail = styled.span`
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.sm};
   line-height: 1.3;
   overflow: hidden;
@@ -112,8 +113,8 @@ export const UserEmail = styled.span`
 
 export const LogoutButton = styled.button<{ $variant: "default" | "menu" }>`
   background: transparent;
-  border: 1px solid ${colors.border.primary};
-  color: ${colors.text.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   padding: ${spacing.xs} ${spacing.sm};
   border-radius: ${borderRadius.md};
   cursor: pointer;
@@ -122,13 +123,13 @@ export const LogoutButton = styled.button<{ $variant: "default" | "menu" }>`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  min-width: 32px;
-  height: 32px;
+  min-width: 42px;
+  height: 55px;
 
   &:hover {
-    border-color: ${colors.status.error};
-    color: ${colors.status.error};
-    background: rgba(218, 54, 51, 0.1);
+    border-color: ${({ theme }) => theme.colors.status.error};
+    color: ${({ theme }) => theme.colors.status.error};
+    background: ${({ theme }) => theme.colors.status.error}1A;
     transform: scale(1.05);
   }
 
@@ -156,15 +157,15 @@ export const LogoutButton = styled.button<{ $variant: "default" | "menu" }>`
     }
   `}
 
-  ${({ $variant }) =>
+  ${({ $variant, theme }) =>
     $variant === "menu" &&
     `
-    background: ${colors.background.secondary};
-    border-color: ${colors.border.secondary};
+    background: ${theme.colors.background.secondary};
+    border-color: ${theme.colors.border.secondary};
     
     &:hover {
-      background: rgba(218, 54, 51, 0.15);
-      border-color: ${colors.status.error};
+      background: ${theme.colors.status.error}26;
+      border-color: ${theme.colors.status.error};
     }
 
     @media (max-width: 1024px) {

@@ -1,4 +1,5 @@
-export const colors = {
+// Dark theme colors (current)
+export const darkColors = {
   // Primary colors
   primary: {
     main: "#238be6",
@@ -45,6 +46,21 @@ export const colors = {
     warning: "#d29922",
     error: "#da3633",
     info: "#58a6ff",
+    orange: "#fd7e14",
+    purple: "#8b5cf6",
+  },
+
+  // Social/External colors
+  social: {
+    github: {
+      primary: "#24292e",
+      secondary: "#1a1e22",
+      border: "#6e7681",
+    },
+    google: {
+      primary: "#4285f4",
+      secondary: "#1a73e8",
+    },
   },
 
   // Neutral colors
@@ -65,6 +81,93 @@ export const colors = {
     },
   },
 };
+
+// Light theme colors (new white mode)
+export const lightColors = {
+  // Primary colors (mantém a identidade da marca)
+  primary: {
+    main: "#0969da", // Azul mais forte para contraste em fundo claro
+    hover: "#0860ca",
+    light: "#218bff",
+    dark: "#0550ae",
+  },
+
+  // Secondary colors
+  secondary: {
+    main: "#f6f8fa", // Fundo cinza muito claro
+    hover: "#eaeef2",
+    light: "#d0d7de",
+    dark: "#afb8c1",
+  },
+
+  // Background colors
+  background: {
+    primary: "#ffffff", // Branco puro como fundo principal
+    primaryOpacity: "#ffffff99", // Branco com transparência para backdrop
+    secondary: "#f6f8fa", // Cinza muito claro para seções
+    tertiary: "#eaeef2", // Cinza claro para elementos terciários
+    paper: "#ffffff", // Cards e papéis em branco
+  },
+
+  // Text colors
+  text: {
+    primary: "#1f2328", // Texto principal escuro
+    secondary: "#656d76", // Texto secundário (cinza médio)
+    disabled: "#8c959f", // Texto desabilitado
+    inverse: "#f6f8fa", // Texto inverso (claro) para fundos escuros
+  },
+
+  // Border colors
+  border: {
+    primary: "#d1d9e0", // Bordas principais sutis
+    secondary: "#eaeef2", // Bordas secundárias ainda mais sutis
+    focus: "#0969da", // Foco mantém o azul da marca
+  },
+
+  // Status colors (ajustados para fundo claro)
+  status: {
+    success: "#1a7f37", // Verde mais escuro
+    warning: "#bf8700", // Amarelo/laranja mais escuro
+    error: "#d1242f", // Vermelho ajustado
+    info: "#0969da", // Azul de informação
+    orange: "#bc4c00", // Laranja mais escuro
+    purple: "#8250df", // Roxo ajustado
+  },
+
+  // Social/External colors (ajustados)
+  social: {
+    github: {
+      primary: "#1f2328", // GitHub em modo claro
+      secondary: "#f6f8fa",
+      border: "#d1d9e0",
+    },
+    google: {
+      primary: "#1a73e8", // Google azul padrão
+      secondary: "#4285f4",
+    },
+  },
+
+  // Neutral colors (mesmo sistema)
+  neutral: {
+    white: "#ffffff",
+    black: "#000000",
+    gray: {
+      50: "#f6f8fa",
+      100: "#eaeef2",
+      200: "#d0d7de",
+      300: "#afb8c1",
+      400: "#8c959f",
+      500: "#6e7781",
+      600: "#57606a",
+      700: "#424a53",
+      800: "#32383f",
+      900: "#24292f",
+    },
+  },
+};
+
+// Sistema de cores atual (compatibilidade)
+export const colors = darkColors;
 
 export const breakpoints = {
   xs: "320px",
@@ -133,7 +236,6 @@ export const transitions = {
   slow: "0.5s ease-in-out",
 };
 
-// Media queries helpers
 export const mediaQueries = {
   up: {
     xs: `@media (min-width: ${breakpoints.xs})`,
@@ -158,7 +260,6 @@ export const mediaQueries = {
   },
 };
 
-// Button size configurations
 export const buttonSizes = {
   xsmall: {
     padding: `${spacing.xs} ${spacing.sm}`,
@@ -192,6 +293,42 @@ export const buttonSizes = {
   },
 };
 
+export const darkGradients = {
+  github: `linear-gradient(135deg, #24292e 0%, #1a1e22 100%)`,
+  google: `linear-gradient(135deg, #4285f4 0%, #1a73e8 100%)`,
+  shimmer: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)`,
+};
+
+export const lightGradients = {
+  github: `linear-gradient(135deg, #f6f8fa 0%, #eaeef2 100%)`,
+  google: `linear-gradient(135deg, #1a73e8 0%, #0969da 100%)`,
+  shimmer: `linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent)`,
+};
+
+export const gradients = darkGradients;
+
+export const getThemeColors = (isDarkMode: boolean = true) => {
+  return isDarkMode ? darkColors : lightColors;
+};
+
+export const getThemeGradients = (isDarkMode: boolean = true) => {
+  return isDarkMode ? darkGradients : lightGradients;
+};
+
+export const getTheme = (isDarkMode: boolean = true) => ({
+  colors: getThemeColors(isDarkMode),
+  gradients: getThemeGradients(isDarkMode),
+  breakpoints,
+  spacing,
+  fontSize,
+  borderRadius,
+  shadows,
+  zIndex,
+  transitions,
+  mediaQueries,
+  buttonSizes,
+});
+
 export const theme = {
   colors,
   breakpoints,
@@ -203,6 +340,7 @@ export const theme = {
   transitions,
   mediaQueries,
   buttonSizes,
+  gradients,
 };
 
 export default theme;

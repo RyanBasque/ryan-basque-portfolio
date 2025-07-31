@@ -1,19 +1,13 @@
 import styled from "styled-components";
 
-import {
-  colors,
-  borderRadius,
-  spacing,
-  shadows,
-  transitions,
-} from "@/assets/styles";
+import { borderRadius, spacing, shadows, transitions } from "@/assets/styles";
 
 export const CardContainer = styled.div`
-  background: ${colors.background.paper};
+  background: ${({ theme }) => theme.colors.background.paper};
   border-radius: ${borderRadius.lg};
   padding: ${spacing.lg};
   box-shadow: ${shadows.md};
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   transition: box-shadow ${transitions.normal};
 
   &:hover {

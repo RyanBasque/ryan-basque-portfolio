@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import {
-  colors,
   spacing,
   borderRadius,
   fontSize,
@@ -14,9 +13,9 @@ export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: ${zIndex.sticky};
-  background: ${colors.background.primaryOpacity};
+  background: ${({ theme }) => theme.colors.background.primaryOpacity};
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid ${colors.border.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border.primary};
   padding: ${spacing.md} 0;
 `;
 
@@ -40,7 +39,7 @@ export const Logo = styled.div`
 `;
 
 export const LogoText = styled.h1`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${fontSize.xxxl};
   font-weight: 700;
   margin: 0;
@@ -48,7 +47,7 @@ export const LogoText = styled.h1`
   transition: ${transitions.normal};
 
   &:hover {
-    color: ${colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
   }
 
   ${mediaQueries.down.md} {
@@ -66,7 +65,7 @@ export const Navigation = styled.nav`
 `;
 
 export const NavLink = styled.a`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   text-decoration: none;
   font-weight: 500;
   padding: ${spacing.sm} ${spacing.md};
@@ -74,8 +73,8 @@ export const NavLink = styled.a`
   transition: ${transitions.normal};
 
   &:hover {
-    color: ${colors.primary.light};
-    background: rgba(88, 166, 255, 0.1);
+    color: ${({ theme }) => theme.colors.primary.light};
+    background: ${({ theme }) => theme.colors.primary.main}1A;
   }
 `;
 
@@ -94,8 +93,8 @@ export const AuthButtons = styled.div<{ $isMenuOpen: boolean }>`
 
 export const LoginButton = styled.button`
   background: transparent;
-  border: 1px solid ${colors.border.primary};
-  color: ${colors.text.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   padding: ${spacing.sm} ${spacing.md};
   border-radius: ${borderRadius.md};
   font-weight: 500;
@@ -103,8 +102,8 @@ export const LoginButton = styled.button`
   transition: ${transitions.normal};
 
   &:hover {
-    border-color: ${colors.primary.light};
-    color: ${colors.primary.light};
+    border-color: ${({ theme }) => theme.colors.primary.light};
+    color: ${({ theme }) => theme.colors.primary.light};
   }
 
   ${mediaQueries.down.md} {
@@ -116,7 +115,7 @@ export const LoginButton = styled.button`
 export const HamburgerButton = styled.button`
   background: transparent;
   border: none;
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   cursor: pointer;
   padding: ${spacing.sm};
   display: flex;
@@ -130,7 +129,7 @@ export const HamburgerButton = styled.button`
   transition: ${transitions.normal};
 
   &:hover {
-    background: rgba(88, 166, 255, 0.1);
+    background: ${({ theme }) => theme.colors.primary.main}1A;
   }
 `;
 
@@ -138,7 +137,7 @@ export const HamburgerLine = styled.span<{ $isOpen: boolean; $index: number }>`
   display: block;
   height: 2px;
   width: 18px;
-  background: ${colors.text.primary};
+  background: ${({ theme }) => theme.colors.text.primary};
   transition: ${transitions.normal};
   transform-origin: center;
 
@@ -182,11 +181,11 @@ export const UserAvatar = styled.div`
   width: 32px;
   height: 32px;
   border-radius: ${borderRadius.full};
-  background: ${colors.primary.light};
+  background: ${({ theme }) => theme.colors.primary.light};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${colors.neutral.white};
+  color: ${({ theme }) => theme.colors.neutral.white};
   font-weight: 600;
   font-size: ${fontSize.sm};
 `;
@@ -201,22 +200,22 @@ export const UserDetails = styled.div`
 `;
 
 export const UserName = styled.span`
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-weight: 500;
   font-size: ${fontSize.sm};
   line-height: 1.2;
 `;
 
 export const UserEmail = styled.span`
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.xs};
   line-height: 1.2;
 `;
 
 export const LogoutButton = styled.button`
   background: transparent;
-  border: 1px solid ${colors.border.primary};
-  color: ${colors.text.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   padding: ${spacing.xs} ${spacing.sm};
   border-radius: ${borderRadius.sm};
   cursor: pointer;
@@ -227,9 +226,9 @@ export const LogoutButton = styled.button`
   margin-left: ${spacing.sm};
 
   &:hover {
-    border-color: ${colors.status.error};
-    color: ${colors.status.error};
-    background: rgba(218, 54, 51, 0.1);
+    border-color: ${({ theme }) => theme.colors.status.error};
+    color: ${({ theme }) => theme.colors.status.error};
+    background: ${({ theme }) => theme.colors.status.error}1A;
   }
 
   span {
@@ -241,4 +240,16 @@ export const LogoutButton = styled.button`
     margin-left: ${spacing.xs};
     padding: ${spacing.xs};
   }
+`;
+
+export const FexContainer = styled.div`
+  display: flex;
+
+  gap: ${spacing.md};
+`;
+
+export const AccountAndTheameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${spacing.md};
 `;

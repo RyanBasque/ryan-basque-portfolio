@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 import {
-  colors,
   borderRadius,
   spacing,
   fontSize,
@@ -20,15 +19,15 @@ export const InputContainer = styled.div`
 export const Label = styled.label`
   font-size: ${fontSize.sm};
   font-weight: 500;
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export const StyledInput = styled.input<StyledInputProps>`
   padding: ${spacing.md} ${spacing.lg};
-  border: 2px solid ${colors.border.primary};
+  border: 2px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.md};
-  background-color: ${colors.background.secondary};
-  color: ${colors.text.primary};
+  background-color: ${({ theme }) => theme.colors.background.secondary};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${fontSize.md};
   transition: border-color ${transitions.fast},
     background-color ${transitions.fast};
@@ -42,34 +41,34 @@ export const StyledInput = styled.input<StyledInputProps>`
     `}
 
   &::placeholder {
-    color: ${colors.text.disabled};
+    color: ${({ theme }) => theme.colors.text.disabled};
   }
 
   &:focus {
     outline: none;
-    border-color: ${colors.border.focus};
-    background-color: ${colors.background.tertiary};
+    border-color: ${({ theme }) => theme.colors.border.focus};
+    background-color: ${({ theme }) => theme.colors.background.tertiary};
   }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background-color: ${colors.background.primary};
+    background-color: ${({ theme }) => theme.colors.background.primary};
   }
 
   ${({ $error }) =>
     $error &&
     css`
-      border-color: ${colors.status.error};
+      border-color: ${({ theme }) => theme.colors.status.error};
 
       &:focus {
-        border-color: ${colors.status.error};
+        border-color: ${({ theme }) => theme.colors.status.error};
       }
     `}
 `;
 
 export const ErrorMessage = styled.span`
   font-size: ${fontSize.sm};
-  color: ${colors.status.error};
+  color: ${({ theme }) => theme.colors.status.error};
   margin-top: ${spacing.xs};
 `;

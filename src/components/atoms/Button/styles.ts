@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 import {
-  colors,
   buttonSizes,
   mediaQueries,
   shadows,
@@ -12,34 +11,34 @@ import { StyledButtonProps } from "./types";
 
 const variantStyles = {
   primary: css`
-    background-color: ${colors.primary.main};
-    color: ${colors.text.primary};
-    border: 2px solid ${colors.primary.main};
+    background-color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors.text.primary};
+    border: 2px solid ${({ theme }) => theme.colors.primary.main};
 
     &:hover:not(:disabled) {
-      background-color: ${colors.primary.hover};
-      border-color: ${colors.primary.hover};
+      background-color: ${({ theme }) => theme.colors.primary.hover};
+      border-color: ${({ theme }) => theme.colors.primary.hover};
     }
   `,
   secondary: css`
-    background-color: ${colors.secondary.main};
-    color: ${colors.text.primary};
-    border: 2px solid ${colors.border.primary};
+    background-color: ${({ theme }) => theme.colors.secondary.main};
+    color: ${({ theme }) => theme.colors.text.primary};
+    border: 2px solid ${({ theme }) => theme.colors.border.primary};
 
     &:hover:not(:disabled) {
-      background-color: ${colors.secondary.hover};
-      border-color: ${colors.secondary.light};
+      background-color: ${({ theme }) => theme.colors.secondary.hover};
+      border-color: ${({ theme }) => theme.colors.secondary.light};
     }
   `,
   outline: css`
     background-color: transparent;
-    color: ${colors.primary.light};
-    border: 2px solid ${colors.border.primary};
+    color: ${({ theme }) => theme.colors.primary.light};
+    border: 2px solid ${({ theme }) => theme.colors.border.primary};
 
     &:hover:not(:disabled) {
-      background-color: ${colors.primary.main};
-      color: ${colors.text.primary};
-      border-color: ${colors.primary.main};
+      background-color: ${({ theme }) => theme.colors.primary.main};
+      color: ${({ theme }) => theme.colors.text.primary};
+      border-color: ${({ theme }) => theme.colors.primary.main};
     }
   `,
 };

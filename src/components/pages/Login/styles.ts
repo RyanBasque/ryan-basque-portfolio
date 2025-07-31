@@ -1,12 +1,12 @@
 import styled, { keyframes } from "styled-components";
 import {
-  colors,
   mediaQueries,
   spacing,
   borderRadius,
   shadows,
   fontSize,
   transitions,
+  gradients,
 } from "@/assets/styles";
 
 const pulse = keyframes`
@@ -20,7 +20,7 @@ const pulse = keyframes`
 
 export const LoginContainer = styled.div`
   min-height: calc(100vh - 300px);
-  color: ${colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,12 +35,12 @@ export const LoginContainer = styled.div`
     bottom: 0;
     background: radial-gradient(
         circle at 20% 80%,
-        ${colors.primary.main}15 0%,
+        ${({ theme }) => theme.colors.primary.main}15 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 80% 20%,
-        ${colors.secondary.main}20 0%,
+        ${({ theme }) => theme.colors.secondary.main}20 0%,
         transparent 50%
       );
     pointer-events: none;
@@ -54,9 +54,9 @@ export const LoginContainer = styled.div`
 export const LoginCard = styled.div`
   position: relative;
   z-index: 1;
-  background: rgba(33, 38, 45, 0.95);
+  background: ${({ theme }) => theme.colors.background.secondary}F2;
   backdrop-filter: blur(20px);
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.xxl};
   padding: ${spacing.xxxl};
   width: 100%;
@@ -95,13 +95,11 @@ export const LoginButton = styled.button<{
   gap: ${spacing.sm};
   width: 100%;
   padding: ${spacing.lg} ${spacing.xl};
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.lg};
   background: ${({ $variant }) =>
-    $variant === "github"
-      ? "linear-gradient(135deg, #24292e 0%, #1a1e22 100%)"
-      : "linear-gradient(135deg, #4285f4 0%, #1a73e8 100%)"};
-  color: ${colors.neutral.white};
+    $variant === "github" ? gradients.github : gradients.google};
+  color: ${({ theme }) => theme.colors.neutral.white};
   font-size: ${fontSize.md};
   font-weight: 600;
   cursor: ${({ $loading }) => ($loading ? "not-allowed" : "pointer")};
@@ -114,7 +112,9 @@ export const LoginButton = styled.button<{
     box-shadow: ${({ $loading }) =>
       $loading ? "none" : `0 8px 32px rgba(0, 0, 0, 0.3)`};
     border-color: ${({ $variant }) =>
-      $variant === "github" ? "#6e7681" : "#4285f4"};
+      $variant === "github"
+        ? "#6e7681" // colors.social.github.border
+        : "#4285f4"}; // colors.social.google.primary
   }
 
   &:active {
@@ -128,12 +128,7 @@ export const LoginButton = styled.button<{
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
+    background: ${gradients.shimmer};
     transition: left 0.6s;
   }
 
@@ -178,7 +173,7 @@ export const Divider = styled.div`
   display: flex;
   align-items: center;
   margin: ${spacing.xl} 0;
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.sm};
 
   &::before,
@@ -186,7 +181,7 @@ export const Divider = styled.div`
     content: "";
     flex: 1;
     height: 1px;
-    background: ${colors.border.primary};
+    background: ${({ theme }) => theme.colors.border.primary};
   }
 
   &::before {
@@ -208,11 +203,11 @@ export const Feature = styled.div`
   display: flex;
   align-items: center;
   gap: ${spacing.sm};
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.sm};
 
   svg {
-    color: ${colors.primary.main};
+    color: ${({ theme }) => theme.colors.primary.main};
     flex-shrink: 0;
   }
 `;
@@ -220,7 +215,7 @@ export const Feature = styled.div`
 export const Footer = styled.footer`
   text-align: center;
   margin-top: ${spacing.xxxl};
-  color: ${colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${fontSize.sm};
 
   ${mediaQueries.down.md} {
@@ -229,12 +224,12 @@ export const Footer = styled.footer`
 `;
 
 export const ErrorMessage = styled.div`
-  background: rgba(218, 54, 51, 0.1);
-  border: 1px solid ${colors.status.error};
+  background: ${({ theme }) => theme.colors.status.error}1A;
+  border: 1px solid ${({ theme }) => theme.colors.status.error};
   border-radius: ${borderRadius.md};
   padding: ${spacing.md};
   margin-bottom: ${spacing.lg};
-  color: ${colors.status.error};
+  color: ${({ theme }) => theme.colors.status.error};
   font-size: ${fontSize.sm};
   text-align: center;
 `;
@@ -245,7 +240,7 @@ export const LoadingOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(13, 17, 23, 0.8);
+  background: ${({ theme }) => theme.colors.background.primary}CC;
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -257,8 +252,8 @@ export const LoadingOverlay = styled.div`
 export const LoadingSpinner = styled.div`
   width: 40px;
   height: 40px;
-  border: 3px solid ${colors.border.primary};
-  border-top: 3px solid ${colors.primary.main};
+  border: 3px solid ${({ theme }) => theme.colors.border.primary};
+  border-top: 3px solid ${({ theme }) => theme.colors.primary.main};
   border-radius: 50%;
   animation: spin 1s linear infinite;
 
@@ -283,10 +278,10 @@ export const GitHubButton = styled.button<{ disabled?: boolean }>`
   gap: ${spacing.sm};
   width: 100%;
   padding: ${spacing.lg} ${spacing.xl};
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.lg};
-  background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
-  color: ${colors.neutral.white};
+  background: ${gradients.github};
+  color: ${({ theme }) => theme.colors.neutral.white};
   font-size: ${fontSize.md};
   font-weight: 600;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -303,7 +298,7 @@ export const GitHubButton = styled.button<{ disabled?: boolean }>`
     transform: ${({ disabled }) => (disabled ? "none" : "translateY(-2px)")};
     box-shadow: ${({ disabled }) =>
       disabled ? "none" : `0 8px 32px rgba(0, 0, 0, 0.3)`};
-    border-color: #6e7681;
+    border-color: ${({ theme }) => theme.colors.social.github.border};
   }
 
   &:active {
@@ -332,10 +327,10 @@ export const GoogleButton = styled.button<{ disabled?: boolean }>`
   gap: ${spacing.sm};
   width: 100%;
   padding: ${spacing.lg} ${spacing.xl};
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${borderRadius.lg};
-  background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
-  color: ${colors.neutral.white};
+  background: ${gradients.google};
+  color: ${({ theme }) => theme.colors.neutral.white};
   font-size: ${fontSize.md};
   font-weight: 600;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -352,7 +347,7 @@ export const GoogleButton = styled.button<{ disabled?: boolean }>`
     transform: ${({ disabled }) => (disabled ? "none" : "translateY(-2px)")};
     box-shadow: ${({ disabled }) =>
       disabled ? "none" : `0 8px 32px rgba(0, 0, 0, 0.3)`};
-    border-color: #4285f4;
+    border-color: ${({ theme }) => theme.colors.social.google.primary};
   }
 
   &:active {

@@ -1,8 +1,7 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 import {
   borderRadius,
-  colors,
   fontSize,
   mediaQueries,
   spacing,
@@ -14,8 +13,8 @@ export const Badge = styled.div`
   width: 40px;
   height: 40px;
   border-radius: ${borderRadius.full};
-  background: ${colors.secondary.main};
-  border: 1px solid ${colors.border.primary};
+  background: ${({ theme }) => theme.colors.secondary.main};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,8 +43,8 @@ export const TooltipContent = styled.div`
   bottom: calc(100% + ${spacing.sm});
   left: 50%;
   transform: translateX(-50%);
-  background: ${colors.background.tertiary};
-  color: ${colors.text.primary};
+  background: ${({ theme }) => theme.colors.background.tertiary};
+  color: ${({ theme }) => theme.colors.text.primary};
   padding: ${spacing.sm} ${spacing.md};
   border-radius: ${borderRadius.md};
   font-size: ${fontSize.xs};
@@ -53,7 +52,7 @@ export const TooltipContent = styled.div`
   white-space: nowrap;
   z-index: ${zIndex.tooltip};
   box-shadow: ${shadows.lg};
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
   pointer-events: none;
 
   &::after {
@@ -66,7 +65,7 @@ export const TooltipContent = styled.div`
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid ${colors.background.tertiary};
+    border-top: 6px solid ${({ theme }) => theme.colors.background.tertiary};
   }
 
   ${mediaQueries.down.sm} {

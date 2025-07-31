@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors, spacing, borderRadius, shadows, zIndex } from "@/assets/styles";
+import { spacing, borderRadius, shadows, zIndex } from "@/assets/styles";
 import { TooltipContentProps, TooltipArrowProps } from "./types";
 
 export const TooltipContainer = styled.div`
@@ -44,8 +44,8 @@ const getTooltipPosition = (position: string) => {
 
 export const TooltipContent = styled.div<TooltipContentProps>`
   position: absolute;
-  background: ${colors.background.tertiary};
-  color: ${colors.text.primary};
+  background: ${({ theme }) => theme.colors.background.tertiary};
+  color: ${({ theme }) => theme.colors.text.primary};
   padding: ${spacing.sm} ${spacing.md};
   border-radius: ${borderRadius.md};
   font-size: 12px;
@@ -53,7 +53,7 @@ export const TooltipContent = styled.div<TooltipContentProps>`
   white-space: nowrap;
   z-index: ${zIndex.tooltip};
   box-shadow: ${shadows.lg};
-  border: 1px solid ${colors.border.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.primary};
 
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
@@ -69,7 +69,8 @@ const getArrowPosition = (position: string) => {
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-top: 6px solid ${colors.background.tertiary};
+        border-top: 6px solid
+          ${({ theme }) => theme.colors.background.tertiary};
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
       `;
@@ -78,7 +79,8 @@ const getArrowPosition = (position: string) => {
         bottom: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-bottom: 6px solid ${colors.background.tertiary};
+        border-bottom: 6px solid
+          ${({ theme }) => theme.colors.background.tertiary};
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
       `;
@@ -87,7 +89,8 @@ const getArrowPosition = (position: string) => {
         left: 100%;
         top: 50%;
         transform: translateY(-50%);
-        border-left: 6px solid ${colors.background.tertiary};
+        border-left: 6px solid
+          ${({ theme }) => theme.colors.background.tertiary};
         border-top: 6px solid transparent;
         border-bottom: 6px solid transparent;
       `;
@@ -96,7 +99,8 @@ const getArrowPosition = (position: string) => {
         right: 100%;
         top: 50%;
         transform: translateY(-50%);
-        border-right: 6px solid ${colors.background.tertiary};
+        border-right: 6px solid
+          ${({ theme }) => theme.colors.background.tertiary};
         border-top: 6px solid transparent;
         border-bottom: 6px solid transparent;
       `;
@@ -105,7 +109,8 @@ const getArrowPosition = (position: string) => {
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-top: 6px solid ${colors.background.tertiary};
+        border-top: 6px solid
+          ${({ theme }) => theme.colors.background.tertiary};
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
       `;
