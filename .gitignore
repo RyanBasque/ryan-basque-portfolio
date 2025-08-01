@@ -42,3 +42,4 @@ next-env.d.ts
 
 # Outhers
 client_secret_894556912281-0s07vbivd5esaqsfkck48hhbpd1nu5g1.apps.googleusercontent.com.json
+/src/generated/prisma
