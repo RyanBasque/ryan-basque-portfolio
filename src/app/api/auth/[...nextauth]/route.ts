@@ -16,6 +16,13 @@ const handler = NextAuth({
   pages: {
     signIn: "/login",
   },
+  callbacks: {
+    async session({ session, token, user }) {
+      console.log("JWT Callback:", { token, user, session });
+
+      return session;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };
