@@ -1,0 +1,238 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact",
+      "backToHome": "Back to Home"
+    },
+    "home": {
+      "role": "Full Stack Developer",
+      "title": "Ryan Basque",
+      "subtitle": "Crafting refined digital experiences with code and design.",
+      "viewWork": "View Work",
+      "contactMe": "Contact Me",
+      "projectsTitle": "Projects",
+      "projectsDesc": "Explore my recent full-stack projects and experiments.",
+      "aboutTitle": "About",
+      "aboutDesc": "Learn more about my background, skills, and philosophy.",
+      "contactTitle": "Contact",
+      "contactDesc": "Get in touch for collaborations or just to say hi.",
+      "aboutSectionTitle": "About Me",
+      "aboutSectionText1": "I'm a passionate Full Stack Developer with a keen eye for detail and a love for clean, efficient code. With expertise in the React ecosystem and modern web technologies, I build digital products that not only work flawlessly but also look stunning.",
+      "aboutSectionText2": "When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying a good cup of coffee while sketching out new ideas.",
+      "techStack": "Tech Stack"
+    },
+    "about": {
+      "heroTitle": "More Than Just Code.",
+      "heroText1": "My journey into software development started with a curiosity about how things work on the web. That curiosity quickly turned into a passion for building.",
+      "heroText2": "Over the years, I've honed my skills in both frontend and backend development, always striving to create seamless user experiences backed by robust architecture.",
+      "timelineTitle": "Journey",
+      "timeline1Year": "2024 - Present",
+      "timeline1Title": "Senior Frontend Engineer",
+      "timeline1Desc": "Leading frontend architecture and mentoring junior developers at TechCorp.",
+      "timeline2Year": "2022 - 2024",
+      "timeline2Title": "Full Stack Developer",
+      "timeline2Desc": "Built scalable web applications using Next.js and Node.js for various clients.",
+      "timeline3Year": "2020 - 2022",
+      "timeline3Title": "Frontend Developer",
+      "timeline3Desc": "Started my professional career focusing on React and UI/UX implementation.",
+      "interestsTitle": "Interests",
+      "coffee": "Coffee Enthusiast",
+      "coffeeDesc": "Exploring specialty beans and perfecting my V60 pour-over technique.",
+      "music": "Music Lover",
+      "musicDesc": "Curating playlists for deep work and collecting vinyl records.",
+      "travel": "Traveler",
+      "travelDesc": "Seeking new cultures, foods, and perspectives around the world.",
+      "philosophyTitle": "My Philosophy",
+      "philosophyQuote": "\"Simplicity is the ultimate sophistication. I strive to build software that feels invisible, enabling users to achieve their goals without friction.\"",
+      "viewProjects": "View More Projects"
+    },
+    "projects": {
+      "title": "Selected Works",
+      "subtitle": "A curated collection of projects that showcase my passion for building robust, user-friendly, and beautiful applications.",
+      "preview": "Preview",
+      "liveDemo": "Live Demo",
+      "code": "Code",
+      "ctaTitle": "Liked what you saw?",
+      "ctaText": "I'm currently open to new opportunities and collaborations. Let's build something amazing together.",
+      "ctaButton": "Get in Touch",
+      "project1Title": "E-commerce Platform",
+      "project1Desc": "A full-featured online store built with Next.js, Stripe, and Sanity CMS. Features include real-time inventory, secure checkout, and an admin dashboard.",
+      "project2Title": "AI Chat Application",
+      "project2Desc": "Real-time chat interface powered by OpenAI's GPT-4 API and Vercel AI SDK. Includes streaming responses, chat history, and markdown support.",
+      "project3Title": "Task Management SaaS",
+      "project3Desc": "Collaborative project management tool with real-time updates via WebSockets. Supports kanban boards, drag-and-drop, and team permissions.",
+      "project4Title": "Finance Dashboard",
+      "project4Desc": "Data visualization dashboard for tracking personal expenses and investments. Features interactive charts, budget planning, and export capabilities.",
+      "project1Role": "Full Stack Developer",
+      "project1Features": [
+        "Real-time inventory management",
+        "Secure Stripe checkout integration",
+        "Admin dashboard with analytics",
+        "Responsive mobile-first design"
+      ],
+      "project2Role": "Frontend Engineer",
+      "project2Features": [
+        "Streaming AI responses",
+        "Markdown rendering support",
+        "Chat history persistence",
+        "Custom system prompts"
+      ],
+      "project3Role": "Lead Developer",
+      "project3Features": [
+        "Real-time collaboration via WebSockets",
+        "Drag-and-drop Kanban boards",
+        "Team permission management",
+        "Automated email notifications"
+      ],
+      "project4Role": "Full Stack Developer",
+      "project4Features": [
+        "Interactive financial charts",
+        "Budget planning tools",
+        "Transaction categorization",
+        "Export to CSV/PDF"
+      ]
+    },
+    "contact": {
+      "title": "Let's Talk",
+      "subtitle": "Have a project in mind or just want to say hi? I'm always open to discussing new ideas and opportunities.",
+      "connectTitle": "Connect with me",
+      "available": "Available for freelance work",
+      "location": "Currently based in São Paulo, Brazil. Open to remote collaborations worldwide.",
+      "formName": "Name",
+      "formEmail": "Email",
+      "formMessage": "Message",
+      "formButton": "Send Message",
+      "formSending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successText": "Thanks for reaching out. I'll get back to you soon.",
+      "sendAnother": "Send another message",
+      "thankYouTitle": "Thank you for being part of my story.",
+      "thankYouText": "Every connection shapes my journey. Whether we work together or just exchange ideas, I appreciate you stopping by."
+    },
+    "footer": {
+      "madeWith": "Made with",
+      "by": "by Ryan Basque in São Paulo"
+    }
+  },
+  "pt": {
+    "nav": {
+      "home": "Início",
+      "about": "Sobre",
+      "projects": "Projetos",
+      "contact": "Contato",
+      "backToHome": "Voltar ao Início"
+    },
+    "home": {
+      "role": "Desenvolvedor Full Stack",
+      "title": "Ryan Basque",
+      "subtitle": "Criando experiências digitais refinadas com código e design.",
+      "viewWork": "Ver Projetos",
+      "contactMe": "Entre em Contato",
+      "projectsTitle": "Projetos",
+      "projectsDesc": "Explore meus projetos full-stack recentes e experimentos.",
+      "aboutTitle": "Sobre",
+      "aboutDesc": "Saiba mais sobre meu background, habilidades e filosofia.",
+      "contactTitle": "Contato",
+      "contactDesc": "Entre em contato para colaborações ou apenas para dizer oi.",
+      "aboutSectionTitle": "Sobre Mim",
+      "aboutSectionText1": "Sou um Desenvolvedor Full Stack apaixonado, com atenção aos detalhes e amor por código limpo e eficiente. Com experiência no ecossistema React e tecnologias web modernas, construo produtos digitais que não apenas funcionam perfeitamente, mas também têm um visual incrível.",
+      "aboutSectionText2": "Quando não estou codando, você pode me encontrar explorando novas tecnologias, contribuindo para open source ou curtindo um bom café enquanto rascunho novas ideias.",
+      "techStack": "Tech Stack"
+    },
+    "about": {
+      "heroTitle": "Mais que Apenas Código.",
+      "heroText1": "Minha jornada no desenvolvimento de software começou com a curiosidade sobre como as coisas funcionam na web. Essa curiosidade rapidamente se transformou em uma paixão por construir.",
+      "heroText2": "Ao longo dos anos, aprimorei minhas habilidades tanto no frontend quanto no backend, sempre buscando criar experiências de usuário perfeitas apoiadas por uma arquitetura robusta.",
+      "timelineTitle": "Jornada",
+      "timeline1Year": "2024 - Presente",
+      "timeline1Title": "Engenheiro Frontend Sênior",
+      "timeline1Desc": "Liderando a arquitetura frontend e mentorando desenvolvedores júnior na TechCorp.",
+      "timeline2Year": "2022 - 2024",
+      "timeline2Title": "Desenvolvedor Full Stack",
+      "timeline2Desc": "Construí aplicações web escaláveis usando Next.js e Node.js para vários clientes.",
+      "timeline3Year": "2020 - 2022",
+      "timeline3Title": "Desenvolvedor Frontend",
+      "timeline3Desc": "Comecei minha carreira profissional focando em React e implementação de UI/UX.",
+      "interestsTitle": "Interesses",
+      "coffee": "Entusiasta de Café",
+      "coffeeDesc": "Explorando grãos especiais e aperfeiçoando minha técnica no V60.",
+      "music": "Amante de Música",
+      "musicDesc": "Curando playlists para trabalho focado e colecionando discos de vinil.",
+      "travel": "Viajante",
+      "travelDesc": "Buscando novas culturas, comidas e perspectivas ao redor do mundo.",
+      "philosophyTitle": "Minha Filosofia",
+      "philosophyQuote": "\"Simplicidade é a sofisticação suprema. Eu me esforço para construir software que pareça invisível, permitindo que os usuários alcancem seus objetivos sem atrito.\"",
+      "viewProjects": "Ver Mais Projetos"
+    },
+    "projects": {
+      "title": "Trabalhos Selecionados",
+      "subtitle": "Uma coleção curada de projetos que mostram minha paixão por construir aplicações robustas, amigáveis e bonitas.",
+      "preview": "Visualizar",
+      "liveDemo": "Demo Ao Vivo",
+      "code": "Código",
+      "ctaTitle": "Gostou do que viu?",
+      "ctaText": "Estou atualmente aberto a novas oportunidades e colaborações. Vamos construir algo incrível juntos.",
+      "ctaButton": "Entre em Contato",
+      "project1Title": "Plataforma E-commerce",
+      "project1Desc": "Uma loja online completa construída com Next.js, Stripe e Sanity CMS. Inclui inventário em tempo real, checkout seguro e painel administrativo.",
+      "project2Title": "Aplicação de Chat IA",
+      "project2Desc": "Interface de chat em tempo real alimentada pela API GPT-4 da OpenAI e Vercel AI SDK. Inclui respostas via streaming, histórico de chat e suporte a markdown.",
+      "project3Title": "SaaS de Gestão de Tarefas",
+      "project3Desc": "Ferramenta colaborativa de gestão de projetos com atualizações em tempo real via WebSockets. Suporta quadros kanban, arrastar e soltar e permissões de equipe.",
+      "project4Title": "Dashboard Financeiro",
+      "project4Desc": "Dashboard de visualização de dados para rastrear despesas pessoais e investimentos. Possui gráficos interativos, planejamento orçamentário e exportação.",
+      "project1Role": "Desenvolvedor Full Stack",
+      "project1Features": [
+        "Gestão de inventário em tempo real",
+        "Integração segura com Stripe",
+        "Painel administrativo com analytics",
+        "Design responsivo mobile-first"
+      ],
+      "project2Role": "Engenheiro Frontend",
+      "project2Features": [
+        "Respostas de IA via streaming",
+        "Suporte a renderização Markdown",
+        "Persistência de histórico de chat",
+        "Prompts de sistema personalizados"
+      ],
+      "project3Role": "Desenvolvedor Líder",
+      "project3Features": [
+        "Colaboração em tempo real via WebSockets",
+        "Quadros Kanban arrastar e soltar",
+        "Gestão de permissões de equipe",
+        "Notificações automáticas por email"
+      ],
+      "project4Role": "Desenvolvedor Full Stack",
+      "project4Features": [
+        "Gráficos financeiros interativos",
+        "Ferramentas de planejamento orçamentário",
+        "Categorização de transações",
+        "Exportação para CSV/PDF"
+      ]
+    },
+    "contact": {
+      "title": "Vamos Conversar",
+      "subtitle": "Tem um projeto em mente ou apenas quer dizer oi? Estou sempre aberto a discutir novas ideias e oportunidades.",
+      "connectTitle": "Conecte-se comigo",
+      "available": "Disponível para trabalhos freelance",
+      "location": "Atualmente baseado em São Paulo, Brasil. Aberto a colaborações remotas mundialmente.",
+      "formName": "Nome",
+      "formEmail": "Email",
+      "formMessage": "Mensagem",
+      "formButton": "Enviar Mensagem",
+      "formSending": "Enviando...",
+      "successTitle": "Mensagem Enviada!",
+      "successText": "Obrigado pelo contato. Retornarei em breve.",
+      "sendAnother": "Enviar outra mensagem",
+      "thankYouTitle": "Obrigado por fazer parte da minha história.",
+      "thankYouText": "Cada conexão molda minha jornada. Seja trabalhando juntos ou apenas trocando ideias, agradeço sua visita."
+    },
+    "footer": {
+      "madeWith": "Feito com",
+      "by": "por Ryan Basque em São Paulo"
+    }
+  }
+}

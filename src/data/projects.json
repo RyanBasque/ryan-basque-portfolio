@@ -1,0 +1,38 @@
+{
+  "e-commerce-platform": {
+    "titleKey": "project1Title",
+    "descKey": "project1Desc",
+    "roleKey": "project1Role",
+    "featuresKey": "project1Features",
+    "gradient": "from-blue-600 to-cyan-500",
+    "tags": ["Next.js", "TypeScript", "Stripe", "Tailwind"],
+    "year": "2024"
+  },
+  "ai-chat-application": {
+    "titleKey": "project2Title",
+    "descKey": "project2Desc",
+    "roleKey": "project2Role",
+    "featuresKey": "project2Features",
+    "gradient": "from-purple-600 to-pink-500",
+    "tags": ["React", "OpenAI", "Vercel SDK", "Radix UI"],
+    "year": "2023"
+  },
+  "task-management-saas": {
+    "titleKey": "project3Title",
+    "descKey": "project3Desc",
+    "roleKey": "project3Role",
+    "featuresKey": "project3Features",
+    "gradient": "from-orange-500 to-red-500",
+    "tags": ["Vue.js", "Firebase", "Pinia", "Sass"],
+    "year": "2023"
+  },
+  "finance-dashboard": {
+    "titleKey": "project4Title",
+    "descKey": "project4Desc",
+    "roleKey": "project4Role",
+    "featuresKey": "project4Features",
+    "gradient": "from-green-500 to-emerald-400",
+    "tags": ["Next.js", "Recharts", "PostgreSQL", "Prisma"],
+    "year": "2022"
+  }
+}
