@@ -14,7 +14,7 @@ export default function HamburgerMenu() {
   const menuItems = [
     { title: t.nav.home, href: "/" },
     { title: t.nav.about, href: "/about-me" },
-    { title: t.nav.projects, href: "/projects" },
+    // { title: t.nav.projects, href: "/projects" },
     { title: t.nav.contact, href: "/contact" },
   ];
 
@@ -60,7 +60,7 @@ export default function HamburgerMenu() {
         {isOpen ? <X size={32} /> : <Menu size={32} />}
       </button>
 
-      <div className="fixed top-6 right-20 z-[100]">
+      <div className="fixed top-7 right-20 z-[100]">
         <LanguageSwitcher />
       </div>
 

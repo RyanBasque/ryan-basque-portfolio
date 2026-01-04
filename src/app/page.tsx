@@ -30,9 +30,10 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed left-0 top-0 flex w-full justify-start pl-6 pr-36 border-b border-gray-800 bg-gradient-to-b from-zinc-900 pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:justify-center lg:pl-4 lg:pr-4 lg:rounded-xl lg:border lg:bg-gray-900/30 lg:p-4"
+          className="fixed left-0 top-0 flex w-full justify-start items-center pl-6 pr-32 border-b border-gray-800 bg-gradient-to-b from-zinc-900 h-20 backdrop-blur-2xl text-xs md:text-sm lg:static lg:w-auto lg:justify-center lg:pl-4 lg:pr-4 lg:rounded-xl lg:border lg:bg-gray-900/30 lg:p-4 lg:h-auto"
         >
-          {t.home.role}
+          <span className="md:hidden">Dev. Full Stack</span>
+          <span className="hidden md:inline">{t.home.role}</span>
         </motion.p>
       </div>
 
@@ -58,12 +59,12 @@ export default function Home() {
           
           <motion.div 
             variants={fadeInUp}
-            className="mt-12 flex gap-6 justify-center"
+            className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-6 sm:px-0"
           >
-             <Link href="/projects" className="px-8 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition-colors">
+             {/* <Link href="/projects" className="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition-colors flex justify-center">
                 {t.home.viewWork}
-             </Link>
-             <Link href="/contact" className="px-8 py-3 rounded-full border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-colors">
+             </Link> */}
+             <Link href="/contact" className="w-full sm:w-auto px-8 py-3 rounded-full border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-colors flex justify-center">
                 {t.home.contactMe}
              </Link>
           </motion.div>
@@ -75,9 +76,9 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="pb-12 md:mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left mt-32 gap-8  border-b border-zinc-900"
+        className="pb-12 md:mb-32 flex flex-col md:flex-row justify-center items-center text-center lg:max-w-5xl lg:w-full lg:mb-0 mt-32 gap-8 border-b border-zinc-900"
       >
-        <Link href="/projects" className="block">
+        {/* <Link href="/projects" className="block">
         <motion.div 
           whileHover={{ y: -10 }}
           transition={{ type: "spring", stiffness: 300 }}
@@ -93,7 +94,7 @@ export default function Home() {
             {t.home.projectsDesc}
           </p>
         </motion.div>
-        </Link>
+        </Link> */}
 
         <Link href="/about-me" className="block">
         <motion.div 

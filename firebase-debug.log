@@ -1,0 +1,57 @@
+[debug] [2026-01-03T07:05:37.060Z] ----------------------------------------------------------------------
+[debug] [2026-01-03T07:05:37.070Z] Command:       /Users/ryan/.local/nodejs/bin/node /Users/ryan/.local/nodejs/bin/firebase init
+[debug] [2026-01-03T07:05:37.070Z] CLI Version:   15.1.0
+[debug] [2026-01-03T07:05:37.070Z] Platform:      darwin
+[debug] [2026-01-03T07:05:37.070Z] Node Version:  v20.10.0
+[debug] [2026-01-03T07:05:37.070Z] Time:          Sat Jan 03 2026 04:05:37 GMT-0300 (GMT-03:00)
+[debug] [2026-01-03T07:05:37.070Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/ryan/Documents/projects/ryan-basque-portfolio
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-01-03T20:45:06.144Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-03T20:45:06.148Z] > authorizing via signed-in user (ryanbasquedev@gmail.com)
+[debug] [2026-01-03T20:45:06.153Z] Checked if tokens are valid: false, expires at: 1767427522305
+[debug] [2026-01-03T20:45:06.153Z] Checked if tokens are valid: false, expires at: 1767427522305
+[debug] [2026-01-03T20:45:06.153Z] > refreshing access token with scopes: []
+[debug] [2026-01-03T20:45:06.161Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-03T20:45:06.162Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-03T20:45:06.423Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-03T20:45:06.424Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-03T20:45:06.442Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2026-01-03T20:45:07.458Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-01-03T20:45:07.458Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] 
+=== Hosting Setup
+[debug] [2026-01-03T20:45:15.923Z] Checked if tokens are valid: true, expires at: 1767476705424
+[debug] [2026-01-03T20:45:15.923Z] Checked if tokens are valid: true, expires at: 1767476705424
+[debug] [2026-01-03T20:45:15.924Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ryan-basque-portifolio-fa8f4 [none]
+[debug] [2026-01-03T20:45:16.354Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ryan-basque-portifolio-fa8f4 200
+[debug] [2026-01-03T20:45:16.355Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ryan-basque-portifolio-fa8f4 {"projectId":"ryan-basque-portifolio-fa8f4","projectNumber":"313152388697","displayName":"ryan-basque-portifolio","name":"projects/ryan-basque-portifolio-fa8f4","resources":{"hostingSite":"ryan-basque-portifolio-fa8f4","realtimeDatabaseInstance":"ryan-basque-portifolio-fa8f4-default-rtdb","locationId":"us-central"},"state":"ACTIVE","etag":"1_51918abe-a37e-4b6a-a2a7-43f2d3c8d36a"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] 
+[info] i  Detected a .git folder at /Users/ryan/Documents/projects/ryan-basque-portfolio 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=875361688&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...

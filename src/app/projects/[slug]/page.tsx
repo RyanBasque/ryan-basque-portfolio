@@ -39,7 +39,7 @@ export default function ProjectDetails() {
 
   return (
     <main className="bg-black min-h-screen text-gray-200 selection:bg-blue-500/30">
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-black/50">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 h-20 flex justify-between items-center backdrop-blur-sm bg-black/50">
         <Link 
           href="/projects" 
           className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group"

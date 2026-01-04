@@ -36,7 +36,7 @@ export default function Projects() {
 
   return (
     <main className="flex-1 bg-black text-gray-200 selection:bg-blue-500/30">
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-black/50">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 h-20 flex justify-between items-center backdrop-blur-sm bg-black/50">
         <Link 
           href="/" 
           className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group"
@@ -84,7 +84,7 @@ export default function Projects() {
                         {project.title}
                       </h3>
                     </Link>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mt-2">
                       {project.tags.map((tag: string) => (
                         <span key={tag} className="text-xs px-3 py-1 rounded-full bg-zinc-800 text-gray-300 border border-zinc-700">
                           {tag}

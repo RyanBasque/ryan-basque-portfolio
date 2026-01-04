@@ -26,7 +26,7 @@ export default function AboutMe() {
   return (
     <main className="flex-1 bg-black text-gray-200 selection:bg-blue-500/30">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-black/50">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 h-20 flex justify-between items-center backdrop-blur-sm bg-black/50">
         <Link 
           href="/" 
           className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group"
@@ -95,6 +95,15 @@ export default function AboutMe() {
                 <h4 className="text-lg font-semibold text-gray-300">{t.about.timeline3Title}</h4>
                 <p className="text-gray-400 leading-relaxed">
                   {t.about.timeline3Desc}
+                </p>
+              </div>
+
+              <div className="relative">
+                <span className="absolute -left-[41px] top-0 flex h-5 w-5 items-center justify-center rounded-full bg-zinc-800 ring-4 ring-black"></span>
+                <h3 className="text-xl font-bold text-white mb-2">{t.about.timeline4Year}</h3>
+                <h4 className="text-lg font-semibold text-gray-300">{t.about.timeline4Title}</h4>
+                <p className="text-gray-400 leading-relaxed">
+                  {t.about.timeline4Desc}
                 </p>
               </div>
             </motion.div>

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
+import profilePic from "@/assets/images/IMG_9967.jpg";
 import {
   motion,
   useMotionValue,
@@ -58,24 +60,17 @@ export default function TiltImage() {
           transform: "translateZ(50px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-0 flex items-center justify-center text-zinc-700"
+        className="absolute inset-0"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
+        <Image
+          src={profilePic}
+          alt="Ryan Basque"
+          fill
+          className="object-cover"
+          priority
+          placeholder="blur"
+        />
       </div>
-      {/* <img src="/your-photo.jpg" alt="John Doe" className="object-cover w-full h-full opacity-80 hover:opacity-100 transition-opacity duration-500" /> */}
     </motion.div>
   );
 }

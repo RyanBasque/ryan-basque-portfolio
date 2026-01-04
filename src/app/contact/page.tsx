@@ -74,7 +74,7 @@ export default function ContactPage() {
 
   return (
     <main className="flex-1 text-gray-200 pt-32 pb-20 px-6 md:px-12 lg:px-24">
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-black/50">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 h-20 flex justify-between items-center backdrop-blur-sm bg-black/50">
         <Link 
           href="/" 
           className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group"
