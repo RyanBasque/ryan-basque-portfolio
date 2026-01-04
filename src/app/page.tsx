@@ -151,7 +151,12 @@ export default function Home() {
             <div className="pt-4">
               <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-4">{t.home.techStack}</h3>
               <div className="flex flex-wrap gap-3">
-                {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"].map((tech) => (
+                {[
+                  "React", "TypeScript", "Next.js", "Node.js", "NestJS", 
+                  "PostgreSQL", "Redis", "Kafka", "RabbitMQ", "Micro-frontends", 
+                  "Clean Architecture", "Event-Driven Systems", "CI/CD", 
+                  "Docker", "AWS", "Automated Testing", "Scalable Systems"
+                ].map((tech) => (
                   <span key={tech} className="px-3 py-1 text-sm rounded-full bg-zinc-900 border border-zinc-800 text-gray-300">
                     {tech}
                   </span>
