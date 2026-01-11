@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Instagram, Linkedin, Send, Phone, ArrowLeft } from "lucide-react";
+import { Mail, Instagram, Linkedin, Send, MessageCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -49,25 +49,25 @@ export default function ContactPage() {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-6 h-6" />,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/ryan-basque-1688761b0/",
       color: "hover:text-blue-500",
     },
     {
       name: "Instagram",
       icon: <Instagram className="w-6 h-6" />,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/wigbas/",
       color: "hover:text-pink-500",
     },
     {
       name: "Email",
       icon: <Mail className="w-6 h-6" />,
-      href: "mailto:hello@ryanbasque.com",
+      href: "mailto:ryanbasquedev@gmail.com",
       color: "hover:text-yellow-500",
     },
     {
       name: "WhatsApp",
-      icon: <Phone className="w-6 h-6" />,
-      href: "https://wa.me/5511999999999",
+      icon: <MessageCircle className="w-6 h-6" />,
+      href: "https://wa.me/5511951083595",
       color: "hover:text-green-500",
     },
   ];
@@ -167,7 +167,7 @@ export default function ContactPage() {
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      placeholder="John Doe"
+                      placeholder={t.contact.formNamePlaceholder}
                     />
                   </div>
 
@@ -182,7 +182,7 @@ export default function ContactPage() {
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      placeholder="john@example.com"
+                      placeholder={t.contact.formEmailPlaceholder}
                     />
                   </div>
 
@@ -197,7 +197,7 @@ export default function ContactPage() {
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                      placeholder="Tell me about your project..."
+                      placeholder={t.contact.formMessagePlaceholder}
                     />
                   </div>
 

@@ -155,7 +155,7 @@ export default function AboutMe() {
           </motion.section>
 
           {/* CTA Button */}
-          <motion.div variants={item} className="flex justify-center pt-8">
+          {/* <motion.div variants={item} className="flex justify-center pt-8">
             <Link href="/projects">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -167,7 +167,7 @@ export default function AboutMe() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               </motion.button>
             </Link>
-          </motion.div>
+          </motion.div> */}
 
         </motion.div>
       </div>
