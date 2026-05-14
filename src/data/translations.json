@@ -34,7 +34,7 @@
       "timeline1Desc": "Working on high-impact, scalable systems with a strong focus on performance, architecture, and user experience. Contributing to critical business flows, collaborating closely with product and backend teams, and delivering reliable solutions for complex platforms operating at scale.",
       "timeline2Year": "2023 – 2025",
       "timeline2Title": "Full Stack Developer",
-      "timeline2Desc": "Core contributor to a large-scale B2B e-commerce platform processing over R$1B/month in transactions. Focused on building resilient, scalable applications with modern frontend and backend architectures. • React, TypeScript, micro-frontends • Node.js, NestJS, PostgreSQL, Redis • Kafka & RabbitMQ for distributed messaging • Performance optimization, CI/CD, and system reliability",
+      "timeline2Desc": "Core contributor to a large-scale B2B Plus      Motos processing over R$1B/month in transactions. Focused on building resilient, scalable applications with modern frontend and backend architectures. • React, TypeScript, micro-frontends • Node.js, NestJS, PostgreSQL, Redis • Kafka & RabbitMQ for distributed messaging • Performance optimization, CI/CD, and system reliability",
       "timeline3Year": "2022 – 2023",
       "timeline3Title": "Frontend Developer",
       "timeline3Desc": "Specialized in building modular, maintainable frontend applications using micro-frontend architecture and clean code principles. • React + TypeScript • Styled-components and design system integration • Strong collaboration with UX/UI and product teams • Test automation and continuous delivery",
@@ -96,6 +96,17 @@
         "Budget planning tools",
         "Transaction categorization",
         "Export to CSV/PDF"
+      ],
+      "project5Title": "Manolo Prieto Portfolio",
+      "project5Desc": "A professional portfolio website for a digital marketing specialist focused on the music industry. Features interactive carousels, animated counters, floating music notes animation, and a responsive dark-themed design with pastel accents.",
+      "project5Role": "Frontend Developer",
+      "project5Features": [
+        "Floating musical notes animation",
+        "Interactive Spotify and YouTube carousels",
+        "Animated statistics counters",
+        "Responsive dark theme with pastel colors",
+        "Contact form with project type selection",
+        "Mobile-first responsive design"
       ]
     },
     "contact": {
@@ -220,6 +231,17 @@
         "Ferramentas de planejamento orçamentário",
         "Categorização de transações",
         "Exportação para CSV/PDF"
+      ],
+      "project5Title": "Portfólio Manolo Prieto",
+      "project5Desc": "Site profissional de portfólio para um especialista em marketing digital focado na indústria musical. Possui carrosséis interativos, contadores animados, animação de notas musicais flutuantes e design responsivo com tema escuro e detalhes em cores pasteis.",
+      "project5Role": "Desenvolvedor Frontend",
+      "project5Features": [
+        "Animação de notas musicais flutuantes",
+        "Carrosséis interativos de Spotify e YouTube",
+        "Contadores de estatísticas animados",
+        "Tema escuro responsivo com cores pasteis",
+        "Formulário de contato com seleção de tipo de projeto",
+        "Design responsivo mobile-first"
       ]
     },
     "contact": {

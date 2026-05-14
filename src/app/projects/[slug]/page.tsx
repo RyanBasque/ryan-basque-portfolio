@@ -74,12 +74,25 @@ export default function ProjectDetails() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900/50 mt-12"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white/10 font-bold text-6xl md:text-8xl tracking-widest uppercase select-none">
-                  Project Preview
-                </span>
-              </div>
+              {project.image ? (
+                <>
+                  <img 
+                    src={project.image} 
+                    alt={t.projects[project.titleKey]}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </>
+              ) : (
+                <>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white/10 font-bold text-6xl md:text-8xl tracking-widest uppercase select-none">
+                      Project Preview
+                    </span>
+                  </div>
+                </>
+              )}
               {/* Browser Chrome UI Decoration */}
               <div className="absolute top-0 left-0 right-0 h-12 bg-black/20 backdrop-blur-md border-b border-white/5 flex items-center px-4 gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/50" />
@@ -201,16 +214,30 @@ export default function ProjectDetails() {
 
           {/* Links */}
           <div className="flex flex-col md:flex-row gap-6 justify-center pt-12">
-            <Link href="#" className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-lg overflow-hidden">
-              <span className="relative z-10">Visit Live Site</span>
-              <ExternalLink className="w-5 h-5 relative z-10 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-              <div className="absolute inset-0 bg-gray-200 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </Link>
+            {project.live && (
+              <Link 
+                href={project.live} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-lg overflow-hidden"
+              >
+                <span className="relative z-10">Visit Live Site</span>
+                <ExternalLink className="w-5 h-5 relative z-10 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                <div className="absolute inset-0 bg-gray-200 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </Link>
+            )}
             
-            <Link href="#" className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-900 text-white border border-zinc-800 rounded-full font-bold text-lg overflow-hidden hover:border-zinc-600 transition-colors">
-              <span className="relative z-10">View Source</span>
-              <Github className="w-5 h-5 relative z-10" />
-            </Link>
+            {project.github && (
+              <Link 
+                href={project.github} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-900 text-white border border-zinc-800 rounded-full font-bold text-lg overflow-hidden hover:border-zinc-600 transition-colors"
+              >
+                <span className="relative z-10">View Source</span>
+                <Github className="w-5 h-5 relative z-10" />
+              </Link>
+            )}
           </div>
 
         </div>

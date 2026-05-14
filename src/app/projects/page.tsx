@@ -14,9 +14,10 @@ export default function Projects() {
     title: t.projects[project.titleKey],
     description: t.projects[project.descKey],
     tags: project.tags,
-    link: "#",
-    github: "#",
-    gradient: project.gradient
+    link: project.live || "#",
+    github: project.github || "#",
+    gradient: project.gradient,
+    image: project.image
   }));
 
   const container: Variants = {
@@ -71,9 +72,19 @@ export default function Projects() {
               >
                 {/* Project Preview (Placeholder for Image) */}
                 <Link href={`/projects/${project.slug}`} className="block w-full">
-                  <div className={`aspect-video w-full rounded-2xl bg-gradient-to-br ${project.gradient} opacity-80 group-hover:opacity-100 transition-opacity shadow-2xl flex items-center justify-center cursor-pointer`}>
-                      <span className="text-white/20 font-bold text-4xl tracking-widest uppercase">{t.projects.preview}</span>
-                  </div>
+                  {project.image ? (
+                    <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity cursor-pointer"
+                      />
+                    </div>
+                  ) : (
+                    <div className={`aspect-video w-full rounded-2xl bg-gradient-to-br ${project.gradient} opacity-80 group-hover:opacity-100 transition-opacity shadow-2xl flex items-center justify-center cursor-pointer`}>
+                        <span className="text-white/20 font-bold text-4xl tracking-widest uppercase">{t.projects.preview}</span>
+                    </div>
+                  )}
                 </Link>
 
                 {/* Project Info */}

@@ -61,9 +61,9 @@ export default function Home() {
             variants={fadeInUp}
             className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-6 sm:px-0"
           >
-             {/* <Link href="/projects" className="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition-colors flex justify-center">
+             <Link href="/projects" className="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition-colors flex justify-center">
                 {t.home.viewWork}
-             </Link> */}
+             </Link>
              <Link href="/contact" className="w-full sm:w-auto px-8 py-3 rounded-full border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-colors flex justify-center">
                 {t.home.contactMe}
              </Link>
@@ -78,8 +78,8 @@ export default function Home() {
         viewport={{ once: true }}
         className="pb-12 md:mb-32 flex flex-col md:flex-row justify-center items-center text-center lg:max-w-5xl lg:w-full lg:mb-0 mt-32 gap-8 border-b border-zinc-900"
       >
-        {/* <Link href="/projects" className="block">
-        <motion.div 
+        <Link href="/projects" className="block">
+        <motion.div
           whileHover={{ y: -10 }}
           transition={{ type: "spring", stiffness: 300 }}
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-700 hover:bg-gray-900/30"
@@ -94,7 +94,7 @@ export default function Home() {
             {t.home.projectsDesc}
           </p>
         </motion.div>
-        </Link> */}
+        </Link>
 
         <Link href="/about-me" className="block">
         <motion.div 

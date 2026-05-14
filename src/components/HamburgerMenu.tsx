@@ -14,7 +14,7 @@ export default function HamburgerMenu() {
   const menuItems = [
     { title: t.nav.home, href: "/" },
     { title: t.nav.about, href: "/about-me" },
-    // { title: t.nav.projects, href: "/projects" },
+    { title: t.nav.projects, href: "/projects" },
     { title: t.nav.contact, href: "/contact" },
   ];
 
